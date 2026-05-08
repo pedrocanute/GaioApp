@@ -8,16 +8,33 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State var stickMan : String = "stickman_01"
+    
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            Image(stickMan)
+                .resizable()
+                .frame(width: 100, height: 500, alignment: .center)
+                .onAppear (perform: timerStickMan)
         }
-        .padding()
+    }
+    func timerStickMan() {
+        var index = 1
+        let timer = Timer.scheduledTimer(withTimeInterval: 0.3, repeats: true) { (timer) in
+            
+            stickMan = "stickman_0\(index)"
+            
+            index += 1
+            
+            if (index > 2) {
+                index = 1;
+            }
+        }
     }
 }
+
+
 
 #Preview {
     ContentView()

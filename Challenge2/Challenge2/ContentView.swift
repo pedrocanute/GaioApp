@@ -10,6 +10,10 @@ import SwiftUI
 struct ContentView: View {
     
     @State var stickMan : String = "stickman_01"
+    @State var progressoSol: Double = 0.5
+    var statusIluminacao: StatusIluminacao {
+        StatusIluminacao.calcularStatus(valor: progressoSol)
+    }
     
     var body: some View {
         VStack {
@@ -17,6 +21,10 @@ struct ContentView: View {
                 .resizable()
                 .frame(width: 100, height: 500, alignment: .center)
                 .onAppear (perform: timerStickMan)
+            SliderSol(valor: $progressoSol, status: statusIluminacao)
+                .frame(maxWidth: 300)
+                .padding(.horizontal, 10)
+            
         }
     }
     func timerStickMan() {
@@ -33,8 +41,6 @@ struct ContentView: View {
         }
     }
 }
-
-
 
 #Preview {
     ContentView()

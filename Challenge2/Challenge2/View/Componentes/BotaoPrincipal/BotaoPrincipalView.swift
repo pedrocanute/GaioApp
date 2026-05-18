@@ -6,13 +6,24 @@
 //
 import SwiftUI
 
-
 struct BotaoPrincipalView: View {
+	
+	var textoBotao: String = "Confirmar"
+	
 	var body: some View {
-		Text("Teste Creato")
-			.font(.custom("CreatoDisplay-Thin.otf", size: 45))
+		ZStack {
+			Rectangle()
+				.frame(maxWidth: .infinity)
+				.frame(height: 44)
+				.foregroundStyle(Color.corBotaoPrincipal)
+				.cornerRadius(20)
+			Text(textoBotao)
+				.font(.custom("CreatoDisplay-Medium", size: 20))
+				.foregroundStyle(Color.white)
+		}
 	}
 }
 #Preview {
 	BotaoPrincipalView()
+		.frame(width:209)
 }

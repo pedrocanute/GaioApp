@@ -6,13 +6,41 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		E1DA73982FBBA28B00600EDD /* CreatoDisplay-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = E1DA73962FBBA28B00600EDD /* CreatoDisplay-Thin.otf */; };
+		E1DA73992FBBA28B00600EDD /* CreatoDisplay-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = E1DA73942FBBA28B00600EDD /* CreatoDisplay-Medium.otf */; };
+		E1DA739A2FBBA28B00600EDD /* CreatoDisplay-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = E1DA73932FBBA28B00600EDD /* CreatoDisplay-Light.otf */; };
+		E1DA739B2FBBA28B00600EDD /* CreatoDisplay-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = E1DA73952FBBA28B00600EDD /* CreatoDisplay-Regular.otf */; };
+		E1DA739C2FBBA28B00600EDD /* CreatoDisplay-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = E1DA73922FBBA28B00600EDD /* CreatoDisplay-Bold.otf */; };
+		E1DA73A02FBBACBA00600EDD /* Lalezar-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E1DA739F2FBBACBA00600EDD /* Lalezar-Regular.ttf */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		E1A8977D2FAE5813001DD350 /* Challenge2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Challenge2.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E1DA73922FBBA28B00600EDD /* CreatoDisplay-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CreatoDisplay-Bold.otf"; sourceTree = "<group>"; };
+		E1DA73932FBBA28B00600EDD /* CreatoDisplay-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CreatoDisplay-Light.otf"; sourceTree = "<group>"; };
+		E1DA73942FBBA28B00600EDD /* CreatoDisplay-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CreatoDisplay-Medium.otf"; sourceTree = "<group>"; };
+		E1DA73952FBBA28B00600EDD /* CreatoDisplay-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CreatoDisplay-Regular.otf"; sourceTree = "<group>"; };
+		E1DA73962FBBA28B00600EDD /* CreatoDisplay-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CreatoDisplay-Thin.otf"; sourceTree = "<group>"; };
+		E1DA739F2FBBACBA00600EDD /* Lalezar-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lalezar-Regular.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		E1DA739E2FBBA66D00600EDD /* Exceptions for "Challenge2" folder in "Challenge2" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = E1A8977C2FAE5813001DD350 /* Challenge2 */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		E1A8977F2FAE5813001DD350 /* Challenge2 */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				E1DA739E2FBBA66D00600EDD /* Exceptions for "Challenge2" folder in "Challenge2" target */,
+			);
 			path = Challenge2;
 			sourceTree = "<group>";
 		};
@@ -33,6 +61,7 @@
 			isa = PBXGroup;
 			children = (
 				E1A8977F2FAE5813001DD350 /* Challenge2 */,
+				E1DA73912FBBA27900600EDD /* Fontes */,
 				E1A8977E2FAE5813001DD350 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -43,6 +72,19 @@
 				E1A8977D2FAE5813001DD350 /* Challenge2.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		E1DA73912FBBA27900600EDD /* Fontes */ = {
+			isa = PBXGroup;
+			children = (
+				E1DA73922FBBA28B00600EDD /* CreatoDisplay-Bold.otf */,
+				E1DA73932FBBA28B00600EDD /* CreatoDisplay-Light.otf */,
+				E1DA73942FBBA28B00600EDD /* CreatoDisplay-Medium.otf */,
+				E1DA73952FBBA28B00600EDD /* CreatoDisplay-Regular.otf */,
+				E1DA73962FBBA28B00600EDD /* CreatoDisplay-Thin.otf */,
+				E1DA739F2FBBACBA00600EDD /* Lalezar-Regular.ttf */,
+			);
+			path = Fontes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -109,6 +151,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1DA73A02FBBACBA00600EDD /* Lalezar-Regular.ttf in Resources */,
+				E1DA73992FBBA28B00600EDD /* CreatoDisplay-Medium.otf in Resources */,
+				E1DA739C2FBBA28B00600EDD /* CreatoDisplay-Bold.otf in Resources */,
+				E1DA739B2FBBA28B00600EDD /* CreatoDisplay-Regular.otf in Resources */,
+				E1DA73982FBBA28B00600EDD /* CreatoDisplay-Thin.otf in Resources */,
+				E1DA739A2FBBA28B00600EDD /* CreatoDisplay-Light.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,6 +299,7 @@
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Challenge2/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -294,6 +343,7 @@
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Challenge2/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;

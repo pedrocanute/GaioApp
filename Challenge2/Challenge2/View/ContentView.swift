@@ -10,12 +10,26 @@ import SwiftUI
 struct ContentView: View {
 	
     var body: some View {
-		ZStack{
-			Color.corFundoBege
-				.ignoresSafeArea()
-			EscolhaUmaPlantaView()
+		GeometryReader { geometria in
+			let largura = geometria.size.width
+			let altura = geometria.size.height
+			let noIPad = largura >= 700
+			let naHorizontal = largura > altura
+			
+			if naHorizontal {
+				
+				HStack{
+				
+				}
+				
+			} else {
+				
+				VStack {
+					
+				}
+			}
 		}
-    }
+	}
 }
 
 #Preview {

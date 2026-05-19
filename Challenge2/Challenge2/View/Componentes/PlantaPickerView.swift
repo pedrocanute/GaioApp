@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+
 struct PlantasData{
     static let plantas:[PlantaPickerModel] = [
         PlantaPickerModel(nome: "planta Carnivora"),
@@ -16,6 +17,7 @@ struct PlantasData{
     
 }
 
+
 struct PlantaPickerView: View {
     @StateObject var viewModel = PickerViewModel()
 
@@ -24,6 +26,7 @@ struct PlantaPickerView: View {
                     Picker("Selecione", selection: $viewModel.plantaSelecionada) {
                         ForEach(PlantasData.plantas) { planta in
                             Text(planta.nome)
+
                                 .foregroundStyle(Color.white)
                                 .font(.custom("CreatoDisplay-regular", size: 20))
                                 .tag(planta)
@@ -31,6 +34,7 @@ struct PlantaPickerView: View {
                     }
                     .pickerStyle(.wheel)  //.menu ou . segmented é o coreto para mecOS
                     .padding()
+
                     
             
                 }

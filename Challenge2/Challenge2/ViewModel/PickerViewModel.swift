@@ -7,10 +7,12 @@
 import Foundation
 import Combine
 
+
 struct PlantaPickerModel: Identifiable,Hashable{
     let id = UUID()
     let nome: String
 }
+
 
 class PickerViewModel: ObservableObject {
     @Published var plantaSelecionada: PlantaPickerModel

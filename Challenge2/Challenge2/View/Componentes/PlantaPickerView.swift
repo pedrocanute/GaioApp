@@ -26,7 +26,6 @@ struct PlantaPickerView: View {
                     Picker("Selecione", selection: $viewModel.plantaSelecionada) {
                         ForEach(PlantasData.plantas) { planta in
                             Text(planta.nome)
-
                                 .foregroundStyle(Color.white)
                                 .font(.custom("CreatoDisplay-regular", size: 20))
                                 .tag(planta)

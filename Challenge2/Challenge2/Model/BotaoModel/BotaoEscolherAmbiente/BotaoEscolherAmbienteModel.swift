@@ -7,8 +7,6 @@
 
 import SwiftUI
 
-
-
 struct BotaoEscolherAmbienteModel: Hashable {
     let img: String
     let texto: String
@@ -17,6 +15,5 @@ struct BotaoEscolherAmbienteModel: Hashable {
         self.img = img
         self.texto = texto
     }
-    
     
 }

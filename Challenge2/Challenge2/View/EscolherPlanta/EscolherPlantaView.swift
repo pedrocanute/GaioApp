@@ -6,16 +6,21 @@
 //
 import SwiftUI
 
-struct EscolherPlantaView: View{
-	var body: some View{
-		VStack{
-			Image("logoGaio")
-				.resizable()
-				.frame(maxWidth: 256, maxHeight: 308)
-			EscolhaUmaPlantaIPhoneView()
-				.ignoresSafeArea()
+struct EscolherPlantaView: View {
+	
+	@Environment(\.horizontalSizeClass) var tamanhoHorizontal
+	@Environment(\.verticalSizeClass) var tamanhoVertical
+	
+	var noIPad: Bool { tamanhoVertical == .regular && tamanhoHorizontal == .regular}
+	
+	var body: some View {
 			
-		}
+			if noIPad {
+				EscolherPlantaIPadView()
+			} else {
+				EscolherPlantaIPhoneView()
+			}
+			
 	}
 }
 

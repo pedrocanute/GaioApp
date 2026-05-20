@@ -7,6 +7,8 @@
 import SwiftUI
 
 struct EscolherPlantaIPadView: View {
+	
+
 	var body: some View {
 		GeometryReader { geo in
 			let modoPaisagem = geo.size.width > geo.size.height
@@ -16,8 +18,8 @@ struct EscolherPlantaIPadView: View {
 					ZStack{
 						Color.corFundoVerdeEscuro
 							.ignoresSafeArea()
-						PainelEscolhaView()
-		
+							PainelEscolhaView()
+						
 					}
 					.frame(maxWidth: geo.size.width * 0.40, maxHeight: .infinity)
 					ZStack{
@@ -52,7 +54,10 @@ struct EscolherPlantaIPadView: View {
 						Text("Bem-vindo(a) ao Gaio")
 							.font(.custom("CreatoDisplay-Regular", size: 30))
 						Spacer()
+						ZStack{
 						PainelEscolhaView()
+						}
+						.frame(height: geo.size.width / 2.4)
 					}
 				}
 				.safeAreaInset(edge: .bottom, spacing: 0) {

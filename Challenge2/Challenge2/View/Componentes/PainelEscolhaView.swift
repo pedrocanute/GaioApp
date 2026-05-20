@@ -10,8 +10,9 @@ struct PainelEscolhaView: View {
 	var body: some View {
 		ZStack{
 			Rectangle()
-				.frame(maxWidth: .infinity, maxHeight: 260)
+				.frame(maxWidth: .infinity, maxHeight: .infinity)
 				.foregroundStyle(.corFundoVerdeEscuro)
+				.ignoresSafeArea()
 			
 			VStack(spacing: 15){
 				Text("Escolha uma planta")

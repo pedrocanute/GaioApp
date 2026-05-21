@@ -13,7 +13,8 @@ struct SliderAguaView: View {
 		VStack{
 			HStack{
 				Text("Água")
-					.font(.custom("CreatoDisplay-Regular", size: 14))
+					.font(.custom("CreatoDisplay-Regular", size: 15, relativeTo: .headline))
+					.foregroundStyle(.corFundoVerdeEscuro)
 				Spacer()
 			}
 			
@@ -32,7 +33,8 @@ struct SliderAguaView: View {
 			.frame(maxWidth: .infinity)
 			
 			Text("\(Int(agua)) ml")
-				.font(.custom("CreatoDisplay-Light", size: 13))
+				.font(.custom("CreatoDisplay-Regular", size: 14, relativeTo: .body))
+				.foregroundStyle(.corFundoVerdeEscuro)
 			
 		}
 		.tint(.corBotaoPrincipal)

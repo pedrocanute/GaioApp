@@ -14,13 +14,15 @@ struct SliderFungoView: View {
 		VStack{
 			HStack{
 				Text("Quantidade de Fungicida")
-					.font(.custom("CreatoDisplay-Regular", size: 14))
+					.font(.custom("CreatoDisplay-Regular", size: 15, relativeTo: .headline))
+					.foregroundStyle(.corFundoVerdeEscuro)
 				Spacer()
 			}
 			
 			Slider(
 				value: $fungo,
 				in: 0...50,
+				step: 25
 				
 			) {
 				Text("Fungo")
@@ -34,7 +36,8 @@ struct SliderFungoView: View {
 			.frame(maxWidth: .infinity)
 			
 			Text("\(Int(fungo)) ml")
-				.font(.custom("CreatoDisplay-Light", size: 13))
+				.font(.custom("CreatoDisplay-Regular", size: 14, relativeTo: .body))
+				.foregroundStyle(.corFundoVerdeEscuro)
 		}
 		.tint(.corBotaoPrincipal)
 		

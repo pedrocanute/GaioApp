@@ -10,10 +10,10 @@ struct SliderAguaView: View {
 	@State private var agua = 250.0
 	
 	var body: some View {
-		VStack{
+		VStack(spacing: 20){
 			HStack{
-				Text("Água")
-					.font(.custom("CreatoDisplay-Regular", size: 15, relativeTo: .headline))
+				Text("Água (\(Int(agua)) mls)")
+					.font(.custom("CreatoDisplay-Regular", size: 15))
 					.foregroundStyle(.corFundoVerdeEscuro)
 				Spacer()
 			}
@@ -31,10 +31,6 @@ struct SliderAguaView: View {
 					.foregroundStyle(.blue)
 			}
 			.frame(maxWidth: .infinity)
-			
-			Text("\(Int(agua)) ml")
-				.font(.custom("CreatoDisplay-Regular", size: 14, relativeTo: .body))
-				.foregroundStyle(.corFundoVerdeEscuro)
 			
 		}
 		.tint(.corBotaoPrincipal)

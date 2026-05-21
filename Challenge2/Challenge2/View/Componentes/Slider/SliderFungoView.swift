@@ -11,9 +11,9 @@ struct SliderFungoView: View {
 	
 	var body: some View {
 		
-		VStack{
+		VStack (spacing: 20){
 			HStack{
-				Text("Quantidade de Fungicida")
+				Text("Quantidade de Fungicida (\(Int(fungo)) ml)")
 					.font(.custom("CreatoDisplay-Regular", size: 15, relativeTo: .headline))
 					.foregroundStyle(.corFundoVerdeEscuro)
 				Spacer()
@@ -35,9 +35,7 @@ struct SliderFungoView: View {
 			}
 			.frame(maxWidth: .infinity)
 			
-			Text("\(Int(fungo)) ml")
-				.font(.custom("CreatoDisplay-Regular", size: 14, relativeTo: .body))
-				.foregroundStyle(.corFundoVerdeEscuro)
+			
 		}
 		.tint(.corBotaoPrincipal)
 		

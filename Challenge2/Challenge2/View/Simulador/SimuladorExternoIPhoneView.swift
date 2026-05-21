@@ -20,20 +20,25 @@ struct SimuladorExternoIPhoneView: View {
 					.ignoresSafeArea(edges: .bottom)
 				
 			}
-			
-			
-			Image("imgMeiaSombra")
-				.resizable()
-				.frame(width: largura)
-				.frame(maxHeight: altura * 0.66)
-				.ignoresSafeArea()
-
-				.safeAreaInset(edge: .bottom, spacing: 0) {
-					PainelSlidersView()
-						.frame(width: largura, height: altura * 0.45)
-						.background(Color.corFundoBege)
-				}
-		
+			ZStack{
+				
+				Image("imgMeiaSombra")
+					.resizable()
+					.frame(width: largura)
+					.frame(maxHeight: altura * 0.59)
+					.ignoresSafeArea()
+				
+					.safeAreaInset(edge: .bottom, spacing: 0) {
+						PainelSlidersView()
+							.frame(width: largura, height: altura * 0.54)
+							.background(Color.corFundoBege)
+					}
+				Image("Girassol01")
+					.resizable()
+					.scaledToFit()
+					.frame(width: largura, height: altura * 0.4)
+					.position(x: largura * 0.522, y: altura * 0.29)
+			}
 		}
 	}
 }

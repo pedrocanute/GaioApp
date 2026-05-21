@@ -12,32 +12,9 @@ enum StatusSol {
 
 struct SliderSolView: View {
 	@State var sol = 1.0
-	var status: StatusSol {
-		switch sol {
-		case 1:
-			return .ensolarado
-		case 2:
-			return .meiaSombra
-		case 3:
-			return .sombra
-		default:
-			return .ensolarado
-		}
-	}
-	var textoSol: String {
-
-		switch status {
-		case .ensolarado:
-			return "Ensolarado"
-		case .meiaSombra:
-			return "Meia-Sombra"
-		case .sombra:
-			return "Sombra"
-		}
-	}
 	
 	var body: some View {
-		VStack{
+		VStack(spacing: 20){
 			HStack{
 				Text("Sol")
 					.font(.custom("CreatoDisplay-Regular", size: 15, relativeTo: .headline))
@@ -59,10 +36,6 @@ struct SliderSolView: View {
 					.foregroundStyle(.blue)
 			}
 			.frame(maxWidth: .infinity)
-			
-			Text("\(textoSol)")
-				.font(.custom("CreatoDisplay-Regular", size: 14, relativeTo: .body))
-				.foregroundStyle(.corFundoVerdeEscuro)
 			
 		}
 		.tint(.corBotaoPrincipal)

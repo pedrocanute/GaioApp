@@ -18,7 +18,7 @@ struct PainelSlidersView: View {
 					.frame(maxWidth: .infinity, maxHeight: .infinity)
 					.foregroundStyle(.corFundoBege)
 					.ignoresSafeArea()
-				VStack {
+				VStack (spacing: 20){
 					Spacer()
 					Text("Condições de Cultivo")
 						.font(.custom("Lalezar-Regular", size: 20, relativeTo: .title))

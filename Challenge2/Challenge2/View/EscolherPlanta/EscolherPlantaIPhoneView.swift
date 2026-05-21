@@ -15,6 +15,7 @@ struct EscolherPlantaIPhoneView: View {
 			Spacer()
 			Text("Bem-vindo(a) ao Gaio")
 				.font(.custom("CreatoDisplay-Regular", size: 20))
+                .foregroundStyle(.black)
 			Spacer()
 			
 			ZStack {

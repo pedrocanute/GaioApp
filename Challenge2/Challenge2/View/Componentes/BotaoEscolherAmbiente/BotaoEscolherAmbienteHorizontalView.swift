@@ -1,15 +1,15 @@
 //
-//  BotaoEscolherAmbienteView.swift
+//  BotaoEscolherAmbienteHorizontalView.swift
 //  Challenge2
 //
-//  Created by Guilherme Alves de Souza on 18/05/26.
+//  Created by Guilherme Alves de Souza on 21/05/26.
 //
 
 import SwiftUI
 
 
 
-struct BotaoEscolherAmbienteView: View {
+struct BotaoEscolherAmbienteHorizontalView: View {
 
     var botao: BotaoEscolherAmbienteModel
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
@@ -18,7 +18,7 @@ struct BotaoEscolherAmbienteView: View {
         
         let noIPad = horizontalSizeClass == .regular
         
-        let larguraImage: CGFloat = noIPad ? 580.0 : 323.0
+        let larguraImage: CGFloat = noIPad ? 500.0 : 323.0
         
         let alturaImage = larguraImage * (180.0 / 323.0)
         
@@ -63,8 +63,8 @@ struct BotaoEscolherAmbienteView: View {
 }
 
 #Preview {
-    BotaoEscolherAmbienteView(botao  :BotaoEscolherAmbienteViewModel.botaoAmbiente[0])
-    BotaoEscolherAmbienteView(botao  :BotaoEscolherAmbienteViewModel.botaoAmbiente[1])
+    BotaoEscolherAmbienteHorizontalView(botao  :BotaoEscolherAmbienteViewModel.botaoAmbiente[0])
+    BotaoEscolherAmbienteHorizontalView(botao  :BotaoEscolherAmbienteViewModel.botaoAmbiente[1])
     
     
 }

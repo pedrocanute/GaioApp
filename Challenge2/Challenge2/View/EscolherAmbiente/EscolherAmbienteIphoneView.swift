@@ -12,43 +12,44 @@ struct EscolherAmbienteIphoneView: View {
     
     var body: some View {
         GeometryReader{ geo in
-            
-            
-            let tituloSize =  geo.size.width * 0.05
-            
-            let textoSize = geo.size.width * 0.04
-            
-            let larguraTexto = geo.size.width * 0.70
-            
-            let tamnhoEllipse = geo.size.width * 0.70
-            
-           
-            VStack {
                 
+                let textoSize = 18.0
                 
-                ZStack{
-                    HStack {
-                        Image("EllipseIpad")
-                            .resizable()
-                            .scaledToFit()
+                let larguraTexto = geo.size.width * 0.80
+                
+                let tamnhoEllipse = geo.size.width * 0.70
+                
+               
+                VStack {
+                    
+                
+                    ZStack{
+                        HStack {
+                            Spacer()
+                            Image("Elipse1")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: tamnhoEllipse)
+                        }
+                        
+                               
+                        
+                        Text("Escolha do ambiente")
+                            .font(.custom(
+                                "Lalezar-Regular",
+                                size: 30,
+                                relativeTo: .title))
+                            .foregroundColor(.corFonteVerdeEscuro)
                             
                     }
-                    .frame(width: tamnhoEllipse)
-                           
                     
-                    Text("Escolha do ambiente")
-                        .font(.custom("Lalezar-Regular", size: tituloSize))
+                    Text("Em qual ambiente gostaria de ver o seu Girassol?")
+                        .font(.custom("CreatoDisplay-Regular", size: textoSize, relativeTo: .body))
                         .foregroundColor(.corFonteVerdeEscuro)
-                        
-                }
-                
-                Text("Em qual ambiente gostaria de ver o seu Girassol?")
-                    .font(.custom("CreatoDisplay-Regular", size: textoSize))
-                    .foregroundColor(.corFonteVerdeEscuro)
-                    .frame(width: larguraTexto)
-                    .multilineTextAlignment(.center)
-                    .lineLimit(2)
-                
+                        .frame(width: larguraTexto)
+                        .multilineTextAlignment(.center)
+                        .lineLimit(2)
+                    
                 BotaoEscolherAmbienteView(
                     botao: BotaoEscolherAmbienteViewModel.botaoAmbiente[0]
                 )
@@ -58,7 +59,7 @@ struct EscolherAmbienteIphoneView: View {
                 
                 Spacer()
                 BotaoPrincipalView()
-                   
+                        .frame(width: 209)
                 Spacer()
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)

@@ -32,14 +32,14 @@ struct EscolherPlantaIPadView: View {
 								.resizable()
 								.frame(maxWidth: 400, maxHeight: 481)
 							Spacer()
-							Text("Bem-vindo(a) ao Gaio")
+							Text("O quebra-galho do cultivo de plantas")
 								.font(.custom("CreatoDisplay-Regular", size: 30))
 							Spacer()
 								
 						}
-						
 					}
 				}
+				
 			} else {
 				
 				ZStack(alignment: .bottom) {
@@ -51,7 +51,7 @@ struct EscolherPlantaIPadView: View {
 							.resizable()
 							.frame(maxWidth: 400, maxHeight: 481)
 						Spacer()
-						Text("Bem-vindo(a) ao Gaio")
+						Text("O quebra-galho do cultivo de plantas")
 							.font(.custom("CreatoDisplay-Regular", size: 30))
 						Spacer()
 						ZStack{

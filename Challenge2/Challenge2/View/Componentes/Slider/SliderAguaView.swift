@@ -7,13 +7,13 @@
 import SwiftUI
 
 struct SliderAguaView: View {
-	@State private var agua = 250.0
+	@Binding var agua: Double
 	
 	var body: some View {
 		VStack(spacing: 20){
 			HStack{
 				Text("Água (\(Int(agua)) mls)")
-					.font(.custom("CreatoDisplay-Regular", size: 15))
+					.font(.custom("CreatoDisplay-Regular", size: 14))
 					.foregroundStyle(.corFundoVerdeEscuro)
 				Spacer()
 			}
@@ -21,6 +21,7 @@ struct SliderAguaView: View {
 			Slider(
 				value: $agua,
 				in: 0...1000,
+				step: 200
 			) {
 				Text("Agua")
 			} minimumValueLabel: {
@@ -37,5 +38,5 @@ struct SliderAguaView: View {
 	}
 }
 #Preview {
-	SliderAguaView()
+//	SliderAguaView()
 }

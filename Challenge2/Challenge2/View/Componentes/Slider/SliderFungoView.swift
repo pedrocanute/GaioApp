@@ -7,14 +7,14 @@
 import SwiftUI
 
 struct SliderFungoView: View {
-	@State var fungo: Double = 0
+	@Binding var fungo: Double
 	
 	var body: some View {
 		
 		VStack (spacing: 20){
 			HStack{
-				Text("Quantidade de Fungicida (\(Int(fungo)) ml)")
-					.font(.custom("CreatoDisplay-Regular", size: 15, relativeTo: .headline))
+				Text("Fungicida (\(Int(fungo)) ml)")
+					.font(.custom("CreatoDisplay-Regular", size: 14, relativeTo: .headline))
 					.foregroundStyle(.corFundoVerdeEscuro)
 				Spacer()
 			}
@@ -36,11 +36,12 @@ struct SliderFungoView: View {
 			.frame(maxWidth: .infinity)
 			
 			
+			
 		}
 		.tint(.corBotaoPrincipal)
 		
 	}
 }
 #Preview {
-	SliderFungoView()
+	//SliderFungoView(fungo: )
 }

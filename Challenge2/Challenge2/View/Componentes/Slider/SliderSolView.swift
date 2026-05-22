@@ -6,17 +6,13 @@
 //
 import SwiftUI
 
-enum StatusSol {
-	case ensolarado, meiaSombra, sombra
-}
-
 struct SliderSolView: View {
-	@State var sol = 1.0
+	@Binding var sol: Double
 	
 	var body: some View {
 		VStack(spacing: 20){
 			HStack{
-				Text("Sol")
+				Text("Iluminação")
 					.font(.custom("CreatoDisplay-Regular", size: 15, relativeTo: .headline))
 					.foregroundStyle(.corFundoVerdeEscuro)
 				Spacer()
@@ -29,18 +25,20 @@ struct SliderSolView: View {
 			) {
 				Text("Sol")
 			} minimumValueLabel: {
-				Image(systemName: "sun.max.fill")
-					.foregroundStyle(.orange)
-			} maximumValueLabel: {
 				Image(systemName: "cloud.sun.fill")
 					.foregroundStyle(.blue)
+			} maximumValueLabel: {
+				Image(systemName: "sun.max.fill")
+					.foregroundStyle(.orange)
 			}
 			.frame(maxWidth: .infinity)
 			
 		}
 		.tint(.corBotaoPrincipal)
+		
+		Text("")
 	}
 }
 #Preview {
-	SliderSolView()
+	//SliderSolView()
 }

@@ -23,6 +23,7 @@ class FAQVCuriosidadeExternoViewModel: ObservableObject {
         
         Question(titleTex: "Fungicida", pesquisaTex: "Alguns pontos importantes:\n\n -Muitos fungicidas podem causar irritação na pele, olhos e vias respiratórias.\n -É recomendado usar luvas, máscara e evitar contato direto.\n -Alguns produtos têm restrições para uso doméstico ou exigem orientação agronômica.\n -Em apartamentos ou ambientes fechados, o uso de fungicidas fortes pode não ser ideal por causa da ventilação.",image: "imgGirassolTeste"),
     ]
+    
+   
 }
-
 

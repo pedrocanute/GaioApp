@@ -15,11 +15,18 @@ class PlantaViewModel {
 	
 	var planta = PlantaModel()
 	
-	var imagemGirassol: String {
+	var imagemGirassolExterna: String {
 		planta.imagemGirassolExterna
 	}
-	var imagemAmbiente: String {
+	var imagemGirassolInterna: String {
+		planta.imagemGirassolInterna
+	}
+	var imagemAmbienteExterna: String {
 		planta.imagemExterna
+	}
+	
+	var imagemAmbienteInterna: String {
+		planta.imagemInterna
 	}
 	
 	func atualizarImagemExterna() {
@@ -62,6 +69,49 @@ class PlantaViewModel {
 			}
 		} else if agua == 800 {
 			planta.statusExterno = .morrendo
+		}
+	}
+	
+	func atualizarImagemInterna() {
+		
+		temFungo = agua == 800 && sol == 1
+		
+		if sol == 3 {
+			planta.statusSol = .ensolarado
+		} else if sol == 2 {
+			planta.statusSol = .meiaSombra
+		} else if sol == 1 {
+			planta.statusSol = .sombra
+		}
+		
+		if agua == 0 || agua == 1000 {
+			planta.statusInterno = .morta
+		} else if temFungo && qtdFungicida == 0 {
+			planta.statusInterno = .morta
+		} else if temFungo && qtdFungicida == 25 {
+			planta.statusInterno = .fraca
+		} else if temFungo && qtdFungicida == 50 {
+			planta.statusInterno = .morta
+		} else if agua == 200 && sol == 3 {
+			planta.statusInterno = .saudavel
+		} else if agua == 400 {
+			if sol == 3 {
+				planta.statusInterno = .normal
+			} else if sol == 2 {
+				planta.statusInterno = .fraca
+			} else if sol == 1 {
+				planta.statusInterno = .morta
+			}
+		} else if agua == 600 {
+			if sol == 3 {
+				planta.statusInterno = .fraca
+			} else if sol == 2 {
+				planta.statusInterno = .morrendo
+			} else if sol == 1 {
+				planta.statusInterno = .morta
+			}
+		} else if agua == 800 {
+			planta.statusInterno = .morrendo
 		}
 	}
 }

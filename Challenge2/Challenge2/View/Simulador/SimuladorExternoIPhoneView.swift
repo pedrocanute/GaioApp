@@ -14,84 +14,28 @@ struct SimuladorExternoIPhoneView: View {
 			let largura = geo.size.width
 			let altura = geo.size.height
 			
+
 			VStack{
-				
 				Color.corCeuAzul
 					.ignoresSafeArea(edges: .top)
-				
-				Spacer()
 				Color.corFundoBege
 					.ignoresSafeArea(edges: .bottom)
 			}
 			
-			ZStack{
-				HStack {
-					Spacer()
-					Rectangle()
-						.frame(width: largura * 0.6 ,height: altura * 0.07)
-						.cornerRadius(70)
-						.foregroundStyle(.corFundoBege)
-						.opacity(0.75)
-						.shadow(radius: 0.2, y: 1)
-					Spacer()
-				}
-				Text("Girassol no Jardim")
-					.font(.custom("Lalezar-Regular", size: 24))
-					.foregroundStyle(.corFundoVerdeEscuro)
-					
-			}
-			.zIndex(1)
-			
-			Image(plantaController.imagemAmbiente)
-				.resizable()
-				.scaledToFill()
-				.frame(width: largura)
-				.frame(maxHeight: altura * 0.27)
-			
-			Image(plantaController.imagemGirassol)
-				.resizable()
-				.scaledToFit()
-				.frame(width: largura, height: altura * 0.35)
-				.position(x: largura * 0.499, y: altura * 0.28)
-			
-			VStack {
-				Spacer()
-				Text("Condições de Cultivo")
-					.font(.custom("Lalezar-Regular", size: 20))
-					.foregroundStyle(.corFundoVerdeEscuro)
+			VStack (spacing: 0){
 				
-				SliderAguaView(agua: $plantaController.agua)
-					.padding(.bottom, 20)
-					.frame(maxWidth: 360)
-					.frame(maxWidth: .infinity, alignment: .center)
-					.onChange(of: plantaController.agua) {
-						plantaController.atualizarImagemExterna()
-					}
+				HeaderSimuladorView(largura: largura, altura: altura)
+					.zIndex(1)
 				
-				SliderFungoView(fungo: $plantaController.qtdFungicida)
-					.padding(.bottom, 20)
-					.frame(maxWidth: 360)
-					.frame(maxWidth: .infinity, alignment: .center)
-					.disabled(!plantaController.temFungo)
-					.onChange(of: plantaController.qtdFungicida) {
-						plantaController.atualizarImagemExterna()
-					}
+				AmbientePlantaView(largura: largura, altura: altura, imagemAmbiente: plantaController.imagemAmbienteExterna, imagemGirassol: plantaController.imagemGirassolExterna, interno: false)
 				
-				SliderSolView(sol: $plantaController.sol)
-					.padding(.bottom, 10)
-					.frame(maxWidth: 360)
-					.frame(maxWidth: .infinity, alignment: .center)
-					.onChange(of: plantaController.sol) {
-						plantaController.atualizarImagemExterna()
-					}
-				
-				
-				BotaoPrincipalView(textoBotao: "Escolha Outra Planta")
-					.frame(maxWidth: 249)
+				PainelSlidersView(plantaController: plantaController)
+					.frame(height: altura * 0.4)
 			}
 		}
 	}
 }
+
 
 #Preview {
 	SimuladorExternoIPhoneView()

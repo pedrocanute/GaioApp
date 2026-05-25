@@ -23,10 +23,10 @@ struct SimuladorInternoIPhoneView: View {
 			
 			VStack {
 				
-				HeaderSimuladorView(largura: largura, altura: altura, titulo: "Girassol Interno")
+				HeaderSimuladorView(largura: largura, altura: altura, modoPaisagem: false, titulo: "Girassol Interno")
 					.zIndex(1)
 				
-				AmbientePlantaView(largura: largura, altura: altura, imagemAmbiente: plantaController.imagemAmbienteInterna, imagemGirassol: plantaController.imagemGirassolInterna, interno: true)
+				AmbientePlantaView(largura: largura, altura: altura, imagemAmbiente: plantaController.imagemAmbienteInterna, imagemGirassol: plantaController.imagemGirassolInterna, interno: true, modoPaisagem: false)
 					
 				
 				PainelSlidersView(plantaController: plantaController)

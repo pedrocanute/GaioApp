@@ -30,6 +30,8 @@ struct PlantaModel {
 		}
 	}
 	
+	
+	
 	var imagemInterna: String {
 		switch statusSol {
 		case .ensolarado:

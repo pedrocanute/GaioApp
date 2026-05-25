@@ -24,10 +24,10 @@ struct SimuladorExternoIPhoneView: View {
 			
 			VStack (spacing: 0){
 				
-				HeaderSimuladorView(largura: largura, altura: altura)
+				HeaderSimuladorView(largura: largura, altura: altura, modoPaisagem: false)
 					.zIndex(1)
 				
-				AmbientePlantaView(largura: largura, altura: altura, imagemAmbiente: plantaController.imagemAmbienteExterna, imagemGirassol: plantaController.imagemGirassolExterna, interno: false)
+				AmbientePlantaView(largura: largura, altura: altura, imagemAmbiente: plantaController.imagemAmbienteExterna, imagemGirassol: plantaController.imagemGirassolExterna, interno: false, modoPaisagem: false)
 				
 				PainelSlidersView(plantaController: plantaController)
 					.frame(height: altura * 0.4)

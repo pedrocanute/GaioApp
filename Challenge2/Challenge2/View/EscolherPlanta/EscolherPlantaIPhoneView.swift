@@ -24,7 +24,7 @@ struct EscolherPlantaIPhoneView: View {
 				Spacer()
 				
 				NavigationLink {
-					SimuladorInternoIPhoneView()
+					SimuladorExternoIPadView()
 				} label: {
 					PainelEscolhaView()
 				}

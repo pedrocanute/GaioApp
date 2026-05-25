@@ -10,7 +10,7 @@ struct SliderSolView: View {
 	@Binding var sol: Double
 	
 	var body: some View {
-		VStack(spacing: 20){
+		VStack(spacing: 10){
 			HStack{
 				Text("Iluminação")
 					.font(.custom("CreatoDisplay-Regular", size: 15, relativeTo: .headline))

@@ -10,11 +10,26 @@ enum StatusPlanta {
 	
 }
 
+enum StatusSol {
+	case ensolarado, meiaSombra, sombra
+}
+
 struct PlantaModel {
 	var statusExterno: StatusPlanta = .saudavel
+	var statusSol: StatusSol = .ensolarado
 	
+	var imagemExterna: String {
+		switch statusSol {
+		case .ensolarado:
+			return "imgEnsolarado"
+		case .meiaSombra:
+			return "imgMeiaSombra"
+		case .sombra:
+			return "imgSombra"
+		}
+	}
 	
-	var imagemExterna: String  {
+	var imagemGirassolExterna: String  {
 		switch statusExterno {
 			
 		case .saudavel:
@@ -29,7 +44,8 @@ struct PlantaModel {
 			return "Girassol05"
 		}
 	}
-	var imagemInterna: String  {
+	
+	var imagemGirassolInterna: String  {
 		switch statusExterno {
 			
 		case .saudavel:

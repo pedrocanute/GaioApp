@@ -8,27 +8,31 @@ import SwiftUI
 
 struct EscolherPlantaIPhoneView: View {
 	var body: some View {
-		
-		VStack(alignment: .center) {
-			
-			Spacer()
-			
-			Image("logoGaio").resizable()
-				.frame(maxWidth: 256, maxHeight: 308)
-			Spacer()
-
-			Text("O quebra-galho do cultivo de plantas")
-				.font(.custom("CreatoDisplay-Regular", size: 20))
-				.multilineTextAlignment(.center)
-			
-			Spacer()
-			
-			ZStack {
-				PainelEscolhaView()
+		NavigationStack{
+			VStack(alignment: .center) {
+				
+				Spacer()
+				
+				Image("logoGaio").resizable()
+					.frame(maxWidth: 256, maxHeight: 308)
+				Spacer()
+				
+				Text("O quebra-galho do cultivo de plantas")
+					.font(.custom("CreatoDisplay-Regular", size: 20))
+					.multilineTextAlignment(.center)
+				
+				Spacer()
+				
+				NavigationLink {
+					SimuladorExternoIPhoneView()
+				} label: {
+					PainelEscolhaView()
+				}
+				.buttonStyle(.plain)
+				.frame(height: 300)
 			}
-			.frame(height: 300)
+			.background(Color.corFundoBege.ignoresSafeArea())
 		}
-		.background(Color.corFundoBege.ignoresSafeArea())
 	}
 }
 

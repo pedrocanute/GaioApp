@@ -10,7 +10,7 @@ struct SliderAguaView: View {
 	@Binding var agua: Double
 	
 	var body: some View {
-		VStack(spacing: 20){
+		VStack(spacing: 10){
 			HStack{
 				Text("Água (\(Int(agua)) mls)")
 					.font(.custom("CreatoDisplay-Regular", size: 14))

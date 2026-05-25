@@ -11,7 +11,7 @@ struct SliderFungoView: View {
 	
 	var body: some View {
 		
-		VStack (spacing: 20){
+		VStack (spacing: 10){
 			HStack{
 				Text("Fungicida (\(Int(fungo)) ml)")
 					.font(.custom("CreatoDisplay-Regular", size: 14, relativeTo: .headline))

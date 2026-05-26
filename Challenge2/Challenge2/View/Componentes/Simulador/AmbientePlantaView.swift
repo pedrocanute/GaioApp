@@ -14,7 +14,7 @@ struct AmbientePlantaView: View {
 	let interno: Bool
 	var modoPaisagem: Bool
 	let iPad: Bool
-	let mostrarAlertaFungo: Bool
+	let alertaAtual: TipoAlertaPlanta
 	
 	var body: some View {
 		
@@ -43,10 +43,19 @@ struct AmbientePlantaView: View {
 				.id(imagemGirassol)
 
 			
-			if mostrarAlertaFungo {
+			switch alertaAtual {
+			case .fungo:
 				AlertaFungoView(iPad: iPad)
 					.position(x: posicaoXAlertaFungo, y: posicaoYAlertaFungo)
 					.transition(.scale.combined(with: .opacity))
+				
+			case .excessoFungicida:
+				AlertaFungicidaView(iPad: iPad)
+					.position(x: posicaoXAlertaFungo, y: posicaoYAlertaFungo)
+					.transition(.scale.combined(with: .opacity))
+				
+			case .nenhum:
+				EmptyView()
 			}
 		}
 		.frame(width: largura, height: altura)

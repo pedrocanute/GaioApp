@@ -6,12 +6,19 @@
 //
 import SwiftUI
 
+enum TipoAlertaPlanta {
+	case fungo
+	case excessoFungicida
+	case nenhum
+}
+
 @Observable
 class PlantaViewModel {
 	var agua: Double = 250.0
 	var qtdFungicida: Double = 0.0
 	var sol: Double = 3
 	var temFungo: Bool = false
+	var excessoFungicida: Bool = false
 	
 	var planta = PlantaModel()
 	
@@ -36,15 +43,29 @@ class PlantaViewModel {
 		planta.imagemInternaIPad
 	}
 	
+	var alertaAtual: TipoAlertaPlanta {
+		if excessoFungicida {
+			return .excessoFungicida
+		}
+		
+		if temFungo {
+			return .fungo
+		}
+		
+		return .nenhum
+	}
+	
 	func atualizarImagemExterna() {
 		atualizarStatusSol()
 		atualizarFungo(ambienteInterno: false)
+		atualizarFungicida()
 		planta.statusExterno = calcularStatusPlanta(ambienteInterno: false)
 	}
 	
 	func atualizarImagemInterna() {
 		atualizarStatusSol()
 		atualizarFungo(ambienteInterno: true)
+		atualizarFungicida()
 		planta.statusInterno = calcularStatusPlanta(ambienteInterno: true)
 	}
 	
@@ -64,6 +85,10 @@ class PlantaViewModel {
 		} else {
 			temFungo = agua >= 800 && sol == 1
 		}
+	}
+	
+	func atualizarFungicida() {
+		excessoFungicida = qtdFungicida == 50
 	}
 	
 	func calcularStatusPlanta(ambienteInterno: Bool) -> StatusPlanta {

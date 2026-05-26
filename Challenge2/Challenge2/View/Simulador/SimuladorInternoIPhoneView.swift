@@ -34,7 +34,7 @@ struct SimuladorInternoIPhoneView: View {
 				HeaderSimuladorView(largura: largura, altura: alturaHeader, modoPaisagem: false, titulo: "Girassol Interno")
 					.zIndex(1)
 				
-					AmbientePlantaView(largura: largura, altura: alturaAmbiente, imagemAmbiente: plantaController.imagemAmbienteInterna, imagemGirassol: plantaController.imagemGirassolInterna, interno: true, modoPaisagem: false, iPad: false, mostrarAlertaFungo: plantaController.temFungo)
+					AmbientePlantaView(largura: largura, altura: alturaAmbiente, imagemAmbiente: plantaController.imagemAmbienteInterna, imagemGirassol: plantaController.imagemGirassolInterna, interno: true, modoPaisagem: false, iPad: false, alertaAtual: plantaController.alertaAtual)
 					
 				
 				PainelSlidersView(plantaController: plantaController)

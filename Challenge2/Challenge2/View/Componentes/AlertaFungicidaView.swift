@@ -18,36 +18,29 @@ struct AlertaFungicidaView: View {
 			Image(systemName: "cross.vial.fill")
 				.resizable()
 				.scaledToFit()
-				.frame(width: iPad ? 160 : 60, height: iPad ? 160 : 50)
-				.offset(y: pulando ? -6 : 0)
+				.frame(width: 60 , height: 50)
 				.padding(.top, 5)
-				.padding(.bottom, 5)
+				.padding(.bottom, 15)
 				.foregroundStyle(.purple)
-//				.animation(
-//					.easeInOut(duration: 0.45)
-////					.repeatForever(autoreverses: true),
-////					value: pulando
-//				)
 			
-			VStack(alignment: .leading, spacing: 0) {
-				Text("Excesso de\nFungicida!")
-					.font(.custom("CreatoDisplay-Bold", size: iPad ? 34 : 20))
+			VStack(alignment: .center, spacing: 0) {
+				Text("Excesso de\n Fungicida!")
+					.font(.custom("CreatoDisplay-Bold", size: 18))
 					.foregroundStyle(.black)
 					.padding(.bottom, 5)
 				
-				Text("Diminua a rega e\naumente a iluminação")
-					.font(.custom("CreatoDisplay-Medium", size: iPad ? 22 : 14))
-					.foregroundStyle(.black.opacity(0.75))
+				Text("Reduza a dosagem")
+					.font(.custom("CreatoDisplay-Medium", size:  14))
+					.foregroundStyle(.black)
 					.padding(.bottom)
 					
 			}
 		}
-		.padding(.horizontal, iPad ? 28 : 20)
-		.padding(.top, iPad ? 22 : 20)
-		.padding(.bottom, iPad ? 32 : 20)
+		.padding(.top, 10)
+		.padding(.bottom, 20)
 		.background {
 			BalaoFalaShape()
-				.fill(Color.corFundoBege.opacity(0.75))
+				.fill(Color.corFundoBege.opacity(0.85))
 				.shadow(color: .black.opacity(0.25), radius: 8, x: 0, y: 4)
 				.frame(width: 235)
 		}

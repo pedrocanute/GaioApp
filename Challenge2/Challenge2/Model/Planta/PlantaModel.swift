@@ -103,7 +103,7 @@ struct PlantaModel {
 		case .morta:
 			return "Vaso05"
 		case .mortaFungicida:
-			return ""
+			return "VasoFungicida"
 		}
 	}
 }

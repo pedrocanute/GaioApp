@@ -10,33 +10,28 @@ struct AlertaFungoView: View {
 			Image(systemName: "allergens.fill")
 				.resizable()
 				.scaledToFit()
-				.frame(width: iPad ? 60 : 60, height: iPad ? 50 : 50)
-				.offset(y: pulando ? -6 : 0)
+				.frame(width: 60, height: 50)
 				.padding(.top, 5)
-				.padding(.bottom, 5)
+				.padding(.bottom, 25)
 				.foregroundStyle(.purple)
-//				.animation(
-//					.easeInOut(duration: 0.45)
-////					.repeatForever(autoreverses: true),
-////					value: pulando
-//				)
-			
-			VStack(alignment: .leading, spacing: 0) {
+
+			VStack(alignment: .center, spacing: 0) {
 				Text("Fungo!")
-					.font(.custom("CreatoDisplay-Bold", size: iPad ? 20 : 20))
+					.font(.custom("CreatoDisplay-Bold", size: 20))
 					.foregroundStyle(.black)
 					.padding(.bottom, 5)
 				
-				Text("Diminua a rega e\naumente a iluminação")
-					.font(.custom("CreatoDisplay-Medium", size: iPad ? 14 : 14))
+				Text("Diminua a rega e \naumente a iluminação")
+					.font(.custom("CreatoDisplay-Medium", size: 14))
 					.foregroundStyle(.black.opacity(0.75))
 					.padding(.bottom)
+					.multilineTextAlignment(.center)
 					
 			}
 		}
-		.padding(.horizontal, iPad ? 20 : 20)
-		.padding(.top, iPad ? 20 : 20)
-		.padding(.bottom, iPad ? 20 : 20)
+		.padding(.horizontal, 20)
+		.padding(.top, 20)
+		.padding(.bottom, 20)
 		.background {
 			BalaoFalaShape()
 				.fill(Color.corFundoBege.opacity(0.75))

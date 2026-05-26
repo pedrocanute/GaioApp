@@ -53,7 +53,7 @@ struct SimuladorInternoIPadView: View {
 								.zIndex(1)
 							Spacer()
 							
-							AmbientePlantaView(largura: larguraAmbiente, altura: altura * 0.9, imagemAmbiente: plantaController.imagemAmbienteInternaIPad, imagemGirassol: plantaController.imagemGirassolInterna, interno: true, modoPaisagem: true, iPad: true, mostrarAlertaFungo: plantaController.temFungo)
+							AmbientePlantaView(largura: larguraAmbiente, altura: altura * 0.9, imagemAmbiente: plantaController.imagemAmbienteInternaIPad, imagemGirassol: plantaController.imagemGirassolInterna, interno: true, modoPaisagem: true, iPad: true, alertaAtual: plantaController.alertaAtual)
 								
 							
 						}
@@ -75,7 +75,7 @@ struct SimuladorInternoIPadView: View {
 					
 					HeaderSimuladorView(largura: largura, altura: alturaHeader, modoPaisagem: false)
 					
-					AmbientePlantaView(largura: largura, altura: alturaAmbiente, imagemAmbiente: plantaController.imagemAmbienteInterna, imagemGirassol: plantaController.imagemGirassolInterna, interno: true, modoPaisagem: false, iPad: true, mostrarAlertaFungo: plantaController.temFungo)
+					AmbientePlantaView(largura: largura, altura: alturaAmbiente, imagemAmbiente: plantaController.imagemAmbienteInterna, imagemGirassol: plantaController.imagemGirassolInterna, interno: true, modoPaisagem: false, iPad: true, alertaAtual: plantaController.alertaAtual)
 					Spacer()
 					PainelSlidersView(plantaController: plantaController)
 						.frame(height: altura * 0.4)

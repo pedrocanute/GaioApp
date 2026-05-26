@@ -30,7 +30,7 @@ struct SimuladorExternoIPhoneView: View {
 				HeaderSimuladorView(largura: largura, altura: alturaHeader, modoPaisagem: false)
 					.zIndex(1)
 				
-				AmbientePlantaView(largura: largura, altura: alturaAmbiente, imagemAmbiente: plantaController.imagemAmbienteExterna, imagemGirassol: plantaController.imagemGirassolExterna, interno: false, modoPaisagem: false, iPad: false, mostrarAlertaFungo: plantaController.temFungo)
+				AmbientePlantaView(largura: largura, altura: alturaAmbiente, imagemAmbiente: plantaController.imagemAmbienteExterna, imagemGirassol: plantaController.imagemGirassolExterna, interno: false, modoPaisagem: false, iPad: false, alertaAtual: plantaController.alertaAtual)
 				
 				PainelSlidersView(plantaController: plantaController)
 					.frame(height: alturaPainel)

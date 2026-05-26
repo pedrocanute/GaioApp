@@ -32,11 +32,12 @@ struct SliderAguaView: View {
 					.foregroundStyle(.blue)
 			}
 			.frame(maxWidth: .infinity)
+			.tint(.corBotaoPrincipal)
 			
 		}
-		.tint(.corBotaoPrincipal)
 	}
 }
 #Preview {
-//	SliderAguaView()
+	@Previewable @State var agua: Double = 200
+	SliderAguaView(agua: $agua)
 }

@@ -20,16 +20,13 @@ struct EscolherPlantaIPhoneView: View {
 				Text("O quebra-galho do cultivo de plantas")
 					.font(.custom("CreatoDisplay-Regular", size: 20))
 					.multilineTextAlignment(.center)
+					.foregroundStyle(.black)
 				
 				Spacer()
 				
-				NavigationLink {
-					SimuladorExternoIPadView()
-				} label: {
-					PainelEscolhaView()
-				}
-				.buttonStyle(.plain)
-				.frame(height: 300)
+				PainelEscolhaView(destino: EscolherAmbienteIphoneView())
+					.frame(height: 300)
+				
 			}
 			.background(Color.corFundoBege.ignoresSafeArea())
 		}

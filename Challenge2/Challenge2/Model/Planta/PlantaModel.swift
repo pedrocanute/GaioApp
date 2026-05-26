@@ -6,7 +6,7 @@
 //
 
 enum StatusPlanta {
-	case saudavel, normal, fraca, morrendo, morta
+	case saudavel, normal, fraca, fracaFungo, morrendo, morrendoFungo, morta, mortaFungicida
 	
 }
 
@@ -30,7 +30,16 @@ struct PlantaModel {
 		}
 	}
 	
-	
+	var imagemExternaIPad: String {
+		switch statusSol {
+		case .ensolarado:
+			return "imgEnsolaradoIpad"
+		case .meiaSombra:
+			return "imgMeiaSombraIpad"
+		case .sombra:
+			return "imgSombraIpad"
+		}
+	}
 	
 	var imagemInterna: String {
 		switch statusSol {
@@ -52,10 +61,16 @@ struct PlantaModel {
 			return "Girassol02"
 		case .fraca:
 			return "Girassol03"
+		case .fracaFungo:
+			return "Girassol03Fungo"
 		case .morrendo:
 			return "Girassol04"
+		case .morrendoFungo:
+			return "Girassol04Fungo"
 		case . morta:
 			return "Girassol05"
+		case .mortaFungicida:
+			return "GirassolFungicida"
 		}
 	}
 	
@@ -68,10 +83,16 @@ struct PlantaModel {
 			return "Vaso02"
 		case .fraca:
 			return "Vaso03"
+		case .fracaFungo:
+			return "Vaso03Fungo"
 		case .morrendo:
 			return "Vaso04"
+		case .morrendoFungo:
+			return "Vaso04Fungicida"
 		case .morta:
 			return "Vaso05"
+		case .mortaFungicida:
+			return ""
 		}
 	}
 }

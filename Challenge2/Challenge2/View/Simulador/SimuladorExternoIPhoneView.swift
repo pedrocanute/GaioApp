@@ -13,6 +13,9 @@ struct SimuladorExternoIPhoneView: View {
 		GeometryReader { geo in
 			let largura = geo.size.width
 			let altura = geo.size.height
+			let alturaHeader = altura * 0.12
+			let alturaAmbiente = altura * 0.38
+			let alturaPainel = altura - alturaHeader - alturaAmbiente
 			
 
 			VStack{
@@ -23,16 +26,19 @@ struct SimuladorExternoIPhoneView: View {
 			}
 			
 			VStack (spacing: 0){
-				
-				HeaderSimuladorView(largura: largura, altura: altura, modoPaisagem: false)
+//				Spacer()
+				HeaderSimuladorView(largura: largura, altura: alturaHeader, modoPaisagem: false)
 					.zIndex(1)
 				
-				AmbientePlantaView(largura: largura, altura: altura, imagemAmbiente: plantaController.imagemAmbienteExterna, imagemGirassol: plantaController.imagemGirassolExterna, interno: false, modoPaisagem: false)
+				AmbientePlantaView(largura: largura, altura: alturaAmbiente, imagemAmbiente: plantaController.imagemAmbienteExterna, imagemGirassol: plantaController.imagemGirassolExterna, interno: false, modoPaisagem: false, iPad: false, mostrarAlertaFungo: plantaController.temFungo)
 				
 				PainelSlidersView(plantaController: plantaController)
-					.frame(height: altura * 0.4)
+					.frame(height: alturaPainel)
+					.padding(.bottom, 20)
+				Spacer()
 			}
 		}
+//		.toolbar(.hidden, for: .navigationBar)
 	}
 }
 

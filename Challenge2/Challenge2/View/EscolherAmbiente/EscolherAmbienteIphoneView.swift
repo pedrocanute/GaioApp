@@ -22,7 +22,9 @@ struct EscolherAmbienteIphoneView: View {
             
             let tamnhoEllipse = geo.size.width * 0.70
             
-           
+			NavigationStack{
+				
+		
             VStack {
                 
                 
@@ -49,13 +51,21 @@ struct EscolherAmbienteIphoneView: View {
                     .multilineTextAlignment(.center)
                     .lineLimit(2)
                 
-                BotaoEscolherAmbienteView(
-                    botao: BotaoEscolherAmbienteViewModel.botaoAmbiente[0]
-                )
-                BotaoEscolherAmbienteView(
-                    botao: BotaoEscolherAmbienteViewModel.botaoAmbiente[1]
-                )
-                
+				NavigationLink {
+					SimuladorExternoIPhoneView()
+				} label: {
+					BotaoEscolherAmbienteView(
+						botao: BotaoEscolherAmbienteViewModel.botaoAmbiente[0]
+					)
+				}
+				NavigationLink {
+					SimuladorInternoIPhoneView()
+				} label: {
+					BotaoEscolherAmbienteView(
+						botao: BotaoEscolherAmbienteViewModel.botaoAmbiente[1]
+					)
+				}
+               
                 Spacer()
                 BotaoPrincipalView()
                    
@@ -65,6 +75,7 @@ struct EscolherAmbienteIphoneView: View {
             .background(Color.corFundoBege)
             
         }
+		}
         
     }
 }

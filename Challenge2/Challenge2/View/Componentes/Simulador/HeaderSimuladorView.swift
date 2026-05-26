@@ -16,19 +16,20 @@ struct HeaderSimuladorView:View {
 		HStack {
 			Spacer()
 			ZStack{
-				Rectangle()
-					.frame(width: modoPaisagem ? largura * 0.25 : largura * 0.6 ,height: altura * 0.04)
-					.cornerRadius(70)
-					.foregroundStyle(.corFundoBege)
-					.opacity(0.75)
-					
 				
 				Text(titulo)
-					.font(.custom("Lalezar-Regular", size: 24))
+					.font(.custom("Lalezar-Regular", size: modoPaisagem ? 20 : 24))
 					.foregroundStyle(.corFundoVerdeEscuro)
+					.padding(.horizontal, modoPaisagem ? 28 : 36)
+					.padding(.vertical, 4)
+					.background {
+						Capsule()
+							.fill(Color.corFundoBege.opacity(0.75))
+					}
 			}
 			Spacer()
 		}
+		.frame(width: largura, height: altura)
 		
 	}
 }

@@ -14,25 +14,34 @@ struct SimuladorInternoIPhoneView: View {
 		GeometryReader { geo in
 			let largura = geo.size.width
 			let altura = geo.size.height
-			VStack {
-				Color.corAzulEscuro
-					.ignoresSafeArea(edges: .top)
-				Color.corFundoBege
-					.ignoresSafeArea(edges: .bottom)
-			}
 			
-			VStack {
+			let alturaHeader = altura * 0.12
+			let alturaAmbiente = altura * 0.38
+			let alturaPainel = altura - alturaHeader - alturaAmbiente
+			
+			ZStack {
+				VStack{
+					Color.corAzulEscuro
+						.frame(height: alturaHeader + alturaAmbiente)
+					Color.corFundoBege
+					
+				}
+				.ignoresSafeArea()
+					
+			
+				VStack(spacing: 0){
 				
-				HeaderSimuladorView(largura: largura, altura: altura, modoPaisagem: false, titulo: "Girassol Interno")
+				HeaderSimuladorView(largura: largura, altura: alturaHeader, modoPaisagem: false, titulo: "Girassol Interno")
 					.zIndex(1)
 				
-				AmbientePlantaView(largura: largura, altura: altura, imagemAmbiente: plantaController.imagemAmbienteInterna, imagemGirassol: plantaController.imagemGirassolInterna, interno: true, modoPaisagem: false)
+					AmbientePlantaView(largura: largura, altura: alturaAmbiente, imagemAmbiente: plantaController.imagemAmbienteInterna, imagemGirassol: plantaController.imagemGirassolInterna, interno: true, modoPaisagem: false, iPad: false, mostrarAlertaFungo: plantaController.temFungo)
 					
 				
 				PainelSlidersView(plantaController: plantaController)
-					.frame(height: altura * 0.4)
+					.frame(height: alturaPainel)
 			}
 		}
+	}
 	}
 }
 

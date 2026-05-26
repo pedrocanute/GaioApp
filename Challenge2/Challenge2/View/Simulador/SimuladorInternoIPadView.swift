@@ -1,4 +1,11 @@
 //
+//  SimuladorInternoIPadView.swift
+//  Challenge2
+//
+//  Created by Pedro Canute on 25/05/26.
+//
+
+//
 //  SimuladorExternoView.swift
 //  Challenge2
 //
@@ -6,9 +13,9 @@
 //
 import SwiftUI
 
-struct SimuladorExternoIPadView: View {
-	
+struct SimuladorInternoIPadView: View {
 	@State var plantaController = PlantaViewModel()
+	
 	
 	var body: some View {
 		GeometryReader { geo in
@@ -34,16 +41,21 @@ struct SimuladorExternoIPadView: View {
 					.frame(width: larguraPainel, height: altura)
 					
 					ZStack {
-						Color.corCeuAzul
-							.ignoresSafeArea()
-						
+						VStack{
+							Color.corAzulEscuro
+								.ignoresSafeArea()
+							Color.corAzulBalcao
+						}
+
 						VStack(spacing: 0) {
-							
+//							Spacer()
 							HeaderSimuladorView(largura: larguraAmbiente, altura: altura * 0.16, modoPaisagem: true)
 								.zIndex(1)
 							Spacer()
 							
-							AmbientePlantaView(largura: larguraAmbiente, altura: altura * 0.9, imagemAmbiente: plantaController.imagemAmbienteExternaIPad, imagemGirassol: plantaController.imagemGirassolExterna, interno: false, modoPaisagem: true, iPad: true, mostrarAlertaFungo: plantaController.temFungo)
+							AmbientePlantaView(largura: larguraAmbiente, altura: altura * 0.9, imagemAmbiente: plantaController.imagemAmbienteInterna, imagemGirassol: plantaController.imagemGirassolInterna, interno: true, modoPaisagem: true, iPad: true, mostrarAlertaFungo: plantaController.temFungo)
+								
+							
 						}
 					}
 					.frame(width: larguraAmbiente, height: altura)
@@ -52,7 +64,7 @@ struct SimuladorExternoIPadView: View {
 			} else {
 				ZStack {
 					VStack(spacing: 0){
-						Color.corCeuAzul
+						Color.corAzulEscuro
 							.ignoresSafeArea(edges: .top)
 						Color.corFundoBege
 							.ignoresSafeArea(edges: .bottom)
@@ -64,10 +76,11 @@ struct SimuladorExternoIPadView: View {
 					HeaderSimuladorView(largura: largura, altura: alturaHeader, modoPaisagem: false)
 //						.zIndex(1)
 					
-					AmbientePlantaView(largura: largura, altura: alturaAmbiente, imagemAmbiente: plantaController.imagemAmbienteExterna, imagemGirassol: plantaController.imagemGirassolExterna, interno: false, modoPaisagem: false, iPad: true, mostrarAlertaFungo: plantaController.temFungo)
+					AmbientePlantaView(largura: largura, altura: alturaAmbiente, imagemAmbiente: plantaController.imagemAmbienteInterna, imagemGirassol: plantaController.imagemGirassolInterna, interno: true, modoPaisagem: false, iPad: true, mostrarAlertaFungo: plantaController.temFungo)
 					Spacer()
 					PainelSlidersView(plantaController: plantaController)
 						.frame(height: altura * 0.4)
+					
 				}
 			}
 		}
@@ -76,5 +89,5 @@ struct SimuladorExternoIPadView: View {
 
 
 #Preview {
-	SimuladorExternoIPadView()
+	SimuladorInternoIPadView()
 }

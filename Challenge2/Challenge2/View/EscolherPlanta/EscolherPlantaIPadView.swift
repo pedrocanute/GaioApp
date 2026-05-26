@@ -18,7 +18,7 @@ struct EscolherPlantaIPadView: View {
 					ZStack{
 						Color.corFundoVerdeEscuro
 							.ignoresSafeArea()
-							PainelEscolhaView()
+						PainelEscolhaView(destino: EscolherAmbienteIpadView())
 						
 					}
 					.frame(maxWidth: geo.size.width * 0.40, maxHeight: .infinity)
@@ -34,6 +34,7 @@ struct EscolherPlantaIPadView: View {
 							Spacer()
 							Text("O quebra-galho do cultivo de plantas")
 								.font(.custom("CreatoDisplay-Regular", size: 30))
+								.foregroundStyle(.black)
 							Spacer()
 								
 						}
@@ -53,9 +54,10 @@ struct EscolherPlantaIPadView: View {
 						Spacer()
 						Text("O quebra-galho do cultivo de plantas")
 							.font(.custom("CreatoDisplay-Regular", size: 30))
+							.foregroundStyle(.black)
 						Spacer()
 						ZStack{
-						PainelEscolhaView()
+						PainelEscolhaView(destino: EscolherAmbienteIpadView())
 						}
 						.frame(height: geo.size.width / 2.4)
 					}

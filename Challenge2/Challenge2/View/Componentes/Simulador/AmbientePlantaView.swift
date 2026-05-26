@@ -24,24 +24,28 @@ struct AmbientePlantaView: View {
 				.resizable()
 				.scaledToFit()
 				.frame(width: largura, height: altura * 1.4)
-			
+				.id(imagemAmbiente)
+				.transition(.opacity)
 			
 			Image(imagemGirassol)
 				.resizable()
 				.scaledToFit()
 				.frame(height: alturaGirassol)
 				.offset(x: offsetXGirassol, y: offsetYGirassol)
-				
+				.id(imagemGirassol)
+				.transition(.opacity.combined(with: .scale(scale: 0.98)))
 			
 			if mostrarAlertaFungo {
-				AlertaFungoView(iPad: iPad ? true : false)
+				AlertaFungoView(iPad: iPad)
 					.position(x: largura * 0.55, y: altura * 0.45)
 					.transition(.scale.combined(with: .opacity))
 			}
-			
 		}
 		.frame(width: largura, height: altura)
 		.clipped()
+		.animation(.snappy(duration: 0.35), value: imagemGirassol)
+		.animation(.smooth(duration: 0.35), value: imagemAmbiente)
+			
 		}
 	
 	var alturaGirassol: CGFloat {

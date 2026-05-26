@@ -7,8 +7,14 @@
 
 import SwiftUI
 
+enum TipoAmbiente {
+	case interno
+	case externo
+}
+
 struct PainelSlidersView: View {
 	@Bindable var plantaController: PlantaViewModel
+	let tipoAmbiente: TipoAmbiente
 	var body: some View {
 		GeometryReader { geo in
 			
@@ -30,21 +36,21 @@ struct PainelSlidersView: View {
 						.frame(maxWidth: larguraSlider)
 						.frame(maxWidth: .infinity, alignment: .center)
 						.onChange(of: plantaController.agua) {
-							plantaController.atualizarImagemExterna()
+							atualizarPlanta()
 						}
 					SliderFungoView(fungo: $plantaController.qtdFungicida)
 						.padding(.bottom, 20)
 						.frame(maxWidth: larguraSlider)
 						.frame(maxWidth: .infinity, alignment: .center)
 						.onChange(of: plantaController.qtdFungicida) {
-							plantaController.atualizarImagemExterna()
+							atualizarPlanta()
 						}
 					SliderSolView(sol: $plantaController.sol)
 						.padding(.bottom, 10)
 						.frame(maxWidth: larguraSlider)
 						.frame(maxWidth: .infinity, alignment: .center)
 						.onChange(of: plantaController.sol) {
-							plantaController.atualizarImagemExterna()
+							atualizarPlanta()
 						}
 					
 					BotaoPrincipalView(textoBotao: "Escolha Outra Planta")
@@ -55,8 +61,17 @@ struct PainelSlidersView: View {
 		}
 		.background(Color.corFundoBege)
 	}
+	
+	func atualizarPlanta() {
+		switch tipoAmbiente {
+		case .interno:
+			plantaController.atualizarImagemInterna()
+		case .externo:
+			plantaController.atualizarImagemExterna()
+		}
+	}
 }
 #Preview {
 	@Previewable @State var plantaController = PlantaViewModel()
-	PainelSlidersView(plantaController: plantaController)
+	PainelSlidersView(plantaController: plantaController, tipoAmbiente: .interno)
 }

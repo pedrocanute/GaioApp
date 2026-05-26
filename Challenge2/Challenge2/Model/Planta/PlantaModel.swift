@@ -86,7 +86,7 @@ struct PlantaModel {
 	}
 	
 	var imagemGirassolInterna: String  {
-		switch statusExterno {
+		switch statusInterno {
 			
 		case .saudavel:
 			return "Vaso01"
@@ -99,7 +99,7 @@ struct PlantaModel {
 		case .morrendo:
 			return "Vaso04"
 		case .morrendoFungo:
-			return "Vaso04Fungicida"
+			return "Vaso03Fungo"
 		case .morta:
 			return "Vaso05"
 		case .mortaFungicida:

@@ -83,7 +83,7 @@ class PlantaViewModel {
 		if ambienteInterno {
 			temFungo = agua >= 800 && sol <= 2
 		} else {
-			temFungo = agua >= 800 && sol == 1
+			temFungo = agua >= 800 && sol <= 2
 		}
 	}
 	
@@ -92,7 +92,7 @@ class PlantaViewModel {
 	}
 	
 	func calcularStatusPlanta(ambienteInterno: Bool) -> StatusPlanta {
-		if agua == 0 || agua == 1000 {
+		if agua == 0 {
 			return .morta
 		}
 		
@@ -114,7 +114,7 @@ class PlantaViewModel {
 			estresse += 1
 		} else if agua == 400 || agua == 600 {
 			estresse += 0
-		} else if agua == 800 {
+		} else if agua >= 800 {
 			estresse += 2
 		}
 		

@@ -5,7 +5,7 @@ struct AlertaFungoView: View {
 	let iPad: Bool
 	
 	var body: some View {
-		HStack(alignment: .center, spacing: iPad ? 18 : 10) {
+		HStack(alignment: .center, spacing: 0) {
 			
 			Image(systemName: "allergens.fill")
 				.resizable()
@@ -21,7 +21,7 @@ struct AlertaFungoView: View {
 					.foregroundStyle(.black)
 					.padding(.bottom, 5)
 				
-				Text("Diminua a rega e \naumente a iluminação")
+				Text("Diminua a quantidade de\n água e aumente a iluminação")
 					.font(.custom("CreatoDisplay-Medium", size: 14))
 					.foregroundStyle(.black.opacity(0.75))
 					.padding(.bottom)
@@ -36,7 +36,7 @@ struct AlertaFungoView: View {
 			BalaoFalaShape()
 				.fill(Color.corFundoBege.opacity(0.75))
 				.shadow(color: .black.opacity(0.25), radius: 8, x: 0, y: 4)
-				.frame(width: 235)
+				.frame(width: 275)
 		}
 		.onAppear {
 			pulando = true

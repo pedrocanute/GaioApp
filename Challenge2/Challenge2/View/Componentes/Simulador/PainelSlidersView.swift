@@ -30,28 +30,21 @@ struct PainelSlidersView: View {
 						.frame(maxWidth: larguraSlider)
 						.frame(maxWidth: .infinity, alignment: .center)
 						.onChange(of: plantaController.agua) {
-							withAnimation(.easeInOut(duration: 0.10)) {
-								plantaController.atualizarImagemExterna()
-							}
+							plantaController.atualizarImagemExterna()
 						}
 					SliderFungoView(fungo: $plantaController.qtdFungicida)
 						.padding(.bottom, 20)
 						.frame(maxWidth: larguraSlider)
 						.frame(maxWidth: .infinity, alignment: .center)
-						.disabled(!plantaController.temFungo)
 						.onChange(of: plantaController.qtdFungicida) {
-							withAnimation(.easeInOut(duration: 0.10)) {
-								plantaController.atualizarImagemExterna()
-							}
+							plantaController.atualizarImagemExterna()
 						}
 					SliderSolView(sol: $plantaController.sol)
 						.padding(.bottom, 10)
 						.frame(maxWidth: larguraSlider)
 						.frame(maxWidth: .infinity, alignment: .center)
 						.onChange(of: plantaController.sol) {
-							withAnimation(.easeInOut(duration: 0.10)) {
-								plantaController.atualizarImagemExterna()
-							}
+							plantaController.atualizarImagemExterna()
 						}
 					
 					BotaoPrincipalView(textoBotao: "Escolha Outra Planta")

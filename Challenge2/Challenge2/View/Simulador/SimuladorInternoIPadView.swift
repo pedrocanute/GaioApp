@@ -53,7 +53,7 @@ struct SimuladorInternoIPadView: View {
 								.zIndex(1)
 							Spacer()
 							
-							AmbientePlantaView(largura: larguraAmbiente, altura: altura * 0.9, imagemAmbiente: plantaController.imagemAmbienteInterna, imagemGirassol: plantaController.imagemGirassolInterna, interno: true, modoPaisagem: true, iPad: true, mostrarAlertaFungo: plantaController.temFungo)
+							AmbientePlantaView(largura: larguraAmbiente, altura: altura * 0.9, imagemAmbiente: plantaController.imagemAmbienteInternaIPad, imagemGirassol: plantaController.imagemGirassolInterna, interno: true, modoPaisagem: true, iPad: true, mostrarAlertaFungo: plantaController.temFungo)
 								
 							
 						}

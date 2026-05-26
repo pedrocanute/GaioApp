@@ -52,6 +52,17 @@ struct PlantaModel {
 		}
 	}
 	
+	var imagemInternaIPad: String {
+		switch statusSol {
+		case .ensolarado:
+			return "imgInternoEnsolaradoIpad"
+		case .meiaSombra:
+			return "imgInternoMeiaSombraIpad"
+		case .sombra:
+			return "imgInternoSombraIpad"
+		}
+	}
+	
 	var imagemGirassolExterna: String  {
 		switch statusExterno {
 			

@@ -22,8 +22,8 @@ struct AmbientePlantaView: View {
 		ZStack {
 			Image(imagemAmbiente)
 				.resizable()
-				.scaledToFit()
-				.frame(width: largura, height: altura * 1.4)
+				.scaledToFill()
+				.frame(width: largura, height: altura * 0.9)
 				.id(imagemAmbiente)
 				.transition(.opacity)
 			
@@ -54,7 +54,7 @@ struct AmbientePlantaView: View {
 		} else if iPad {
 			return interno ? altura * 0.9 : altura * 0.75
 		} else {
-			return interno ? altura * 0.9 : altura * 0.70
+			return interno ? altura * 0.9 : altura * 0.8
 		}
 	}
 	
@@ -64,11 +64,11 @@ struct AmbientePlantaView: View {
 	
 	var offsetYGirassol: CGFloat {
 		if modoPaisagem {
-			return interno ? altura * 0.04 : altura * 0.15
+			return interno ? altura * 0.13 : altura * 0.15
 		} else if iPad {
 			return interno ? altura * 0.10 : altura * 0.09
 		} else {
-			return interno ? altura * 0.08 : altura * 0.05
+			return interno ? altura * 0.08 : altura * 0.08
 		}
 		
 	}

@@ -32,6 +32,9 @@ class PlantaViewModel {
 	var imagemAmbienteInterna: String {
 		planta.imagemInterna
 	}
+	var imagemAmbienteInternaIPad: String {
+		planta.imagemInternaIPad
+	}
 	
 	func atualizarImagemExterna() {
 		atualizarStatusSol()

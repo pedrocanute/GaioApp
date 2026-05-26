@@ -16,16 +16,24 @@ struct AmbientePlantaView: View {
 	let iPad: Bool
 	let mostrarAlertaFungo: Bool
 	
-	
 	var body: some View {
 		
 		ZStack {
-			Image(imagemAmbiente)
-				.resizable()
-				.scaledToFill()
-				.frame(width: largura, height: altura * 0.9)
-				.id(imagemAmbiente)
-				.transition(.opacity)
+			if modoPaisagem && interno {
+				Image(imagemAmbiente)
+					.resizable()
+					.scaledToFill()
+					.frame(width: largura, height: altura * 0.9)
+					.id(imagemAmbiente)
+					.offset(y:80)
+			} else {
+				
+				Image(imagemAmbiente)
+					.resizable()
+					.scaledToFill()
+					.frame(width: largura, height: altura * 0.9)
+					.id(imagemAmbiente)
+			}
 			
 			Image(imagemGirassol)
 				.resizable()
@@ -33,24 +41,21 @@ struct AmbientePlantaView: View {
 				.frame(height: alturaGirassol)
 				.offset(x: offsetXGirassol, y: offsetYGirassol)
 				.id(imagemGirassol)
-				.transition(.opacity.combined(with: .scale(scale: 0.98)))
+
 			
 			if mostrarAlertaFungo {
 				AlertaFungoView(iPad: iPad)
-					.position(x: largura * 0.55, y: altura * 0.45)
+					.position(x: posicaoXAlertaFungo, y: posicaoYAlertaFungo)
 					.transition(.scale.combined(with: .opacity))
 			}
 		}
 		.frame(width: largura, height: altura)
 		.clipped()
-		.animation(.snappy(duration: 0.35), value: imagemGirassol)
-		.animation(.smooth(duration: 0.35), value: imagemAmbiente)
-			
 		}
 	
 	var alturaGirassol: CGFloat {
 		if modoPaisagem {
-			return interno ? altura * 0.65 : altura * 0.6
+			return interno ? altura * 0.85 : altura * 0.6
 		} else if iPad {
 			return interno ? altura * 0.9 : altura * 0.75
 		} else {
@@ -64,13 +69,35 @@ struct AmbientePlantaView: View {
 	
 	var offsetYGirassol: CGFloat {
 		if modoPaisagem {
-			return interno ? altura * 0.13 : altura * 0.15
+			return interno ? altura * 0.18 : altura * 0.15
 		} else if iPad {
 			return interno ? altura * 0.10 : altura * 0.09
 		} else {
 			return interno ? altura * 0.08 : altura * 0.08
 		}
 		
+	}
+	
+	var posicaoXAlertaFungo: CGFloat {
+		let centroGirassolX = largura / 2 + offsetXGirassol
+		
+		if iPad {
+			return centroGirassolX + largura * 0.10
+		} else {
+			return centroGirassolX + largura * 0.12
+		}
+	}
+
+	var posicaoYAlertaFungo: CGFloat {
+		let centroGirassolY = altura / 2 + offsetYGirassol
+		
+		if modoPaisagem {
+			return centroGirassolY - alturaGirassol * 0.35
+		} else if iPad {
+			return centroGirassolY - alturaGirassol * 0.32
+		} else {
+			return centroGirassolY - alturaGirassol * 0.40
+		}
 	}
 }
 

@@ -48,8 +48,8 @@ struct SimuladorInternoIPadView: View {
 						}
 
 						VStack(spacing: 0) {
-//							Spacer()
-							HeaderSimuladorView(largura: larguraAmbiente, altura: altura * 0.16, modoPaisagem: true)
+
+							HeaderSimuladorView(largura: larguraAmbiente, altura: altura * 0.16, modoPaisagem: true, titulo: "Girassol Interno")
 								.zIndex(1)
 							Spacer()
 							
@@ -74,19 +74,16 @@ struct SimuladorInternoIPadView: View {
 				VStack (spacing: 0){
 					
 					HeaderSimuladorView(largura: largura, altura: alturaHeader, modoPaisagem: false)
-//						.zIndex(1)
 					
 					AmbientePlantaView(largura: largura, altura: alturaAmbiente, imagemAmbiente: plantaController.imagemAmbienteInterna, imagemGirassol: plantaController.imagemGirassolInterna, interno: true, modoPaisagem: false, iPad: true, mostrarAlertaFungo: plantaController.temFungo)
 					Spacer()
 					PainelSlidersView(plantaController: plantaController)
 						.frame(height: altura * 0.4)
-					
 				}
 			}
 		}
 	}
 }
-
 
 #Preview {
 	SimuladorInternoIPadView()

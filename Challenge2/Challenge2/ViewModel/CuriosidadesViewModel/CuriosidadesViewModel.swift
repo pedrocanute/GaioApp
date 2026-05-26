@@ -58,7 +58,11 @@ class CuriosidadesViewModel : ObservableObject {
     ]
     
     @Published var texto13 = [
-        CuriosidadesTextoExternoView(texto: "O Girassol Helianthus annuus possui um ciclo de vida anual, com duração média de aproximadamente 3 a 5  meses, dependendo das condições de cultivo, clima e variedade. Sua floração geralmente ocorre entre 60 e 90 dias após o plantio, e as flores podem permanecer bonitas e abertas por cerca de 2 a 4 semanas.")
+        CuriosidadesTextoExternoView(texto: " O Girassol Helianthus annuus\n possui um ciclo de vida anual, com\n duração    média   de\n aproximadamente 3 a 5  meses,\n dependendo das condições de\n cultivo, clima e variedade.\n Sua floração geralmente ocorre\n entre 60 e 90 dias após o plantio,\n e as flores podem permanecer\n bonitas e abertas por cerca de 2 a\n 4 semanas.")
+    ]
+    
+    @Published var texto20 = [
+        CuriosidadesTextoExternoView(texto: " O Girassol Helianthus annuus possui um ciclo de vida anual, com duração    média   de aproximadamente 3 a 5  meses, dependendo das condições de cultivo, clima e variedade. Sua floração geralmente ocorre entre 60 e 90 dias após o plantio,e as flores podem permanecer bonitas e abertas por cerca de 2 a 4 semanas.")
     ]
     
     @Published var texto14 = [

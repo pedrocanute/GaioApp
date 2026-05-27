@@ -46,17 +46,18 @@ struct CuriosidadesExterno: View {
                     
                     Text(AttributedString(question.pesquisaTex))
                         .font(.custom("creatoDisplay-regular", size: pesquisaSize, relativeTo: .title2))
+					
                     
                     
                 } label: {
                     Text(question.titleTex)
                         .font(.custom("creatoDisplay-medium", size: titoloPesquisa, relativeTo: .title2))
+						
                 }
                 .listRowBackground(Color.corElipseFundo)
                 .listRowSeparator(.hidden)
                 
             }
-           
             .listStyle(.automatic)
             .scrollContentBackground(.hidden)
             .cornerRadius(40)
@@ -64,6 +65,7 @@ struct CuriosidadesExterno: View {
                 
 
             }
+			.environment(\.colorScheme, .light)
             .background(Color.corFundoBege)
         }
     }

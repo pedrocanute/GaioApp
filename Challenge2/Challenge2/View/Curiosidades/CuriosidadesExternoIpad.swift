@@ -44,17 +44,17 @@ struct CuriosidadesExternoIpad: View {
                                     .ignoresSafeArea()
                                 
                             }
-                            VStack{
-                                Text("Curiosidades do ")
-                                    .padding(.bottom,geo.size.width * -0.50)
-                                Text("Girassol no Jardim")
-                                    
-                            }
-                                    .font(.custom("lalezar-regular", size: tituloSize, relativeTo: .title3))
-                                    .multilineTextAlignment(.center)
-                                    .lineSpacing(10)
-                                    .foregroundStyle(Color.corFonteVerdeEscuro)
-                                    .padding(.top,geo.size.width * -0.60)
+							VStack{
+								Text("Curiosidades do ")
+									.padding(.bottom, -50)
+								Text("Girassol Interno")
+								
+							}
+							.font(.custom("lalezar-regular", size: 50, relativeTo: .title3))
+							.multilineTextAlignment(.center)
+							.lineSpacing(10)
+							.foregroundStyle(Color.corFonteVerdeEscuro)
+							.padding(.top, -60)
                             
                             HStack{
                                 ZStack{
@@ -214,7 +214,7 @@ struct CuriosidadesExternoIpad: View {
                     .ignoresSafeArea()
                     
                 }
-                
+				.environment(\.colorScheme, .light)
             }else{
                 ZStack{
                     
@@ -229,17 +229,17 @@ struct CuriosidadesExternoIpad: View {
                                     .ignoresSafeArea()
                                     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .trailing)
                             }
-                            VStack{
-                                Text("Curiosidades do ")
-                                    .padding(.bottom, geo.size.width * -0.50)
-                                Text("Girassol no Jardim")
-                                    
-                            }
-                                    .font(.custom("lalezar-regular", size: tituloSize, relativeTo: .title3))
-                                    .multilineTextAlignment(.center)
-                                    .lineSpacing(10)
-                                    .foregroundStyle(Color.corFonteVerdeEscuro)
-                                    .padding(.top, geo.size.width * -0.60)
+							VStack{
+								Text("Curiosidades do ")
+									.padding(.bottom, -50)
+								Text("Girassol Interno")
+								
+							}
+							.font(.custom("lalezar-regular", size: 50, relativeTo: .title3))
+							.multilineTextAlignment(.center)
+							.lineSpacing(10)
+							.foregroundStyle(Color.corFonteVerdeEscuro)
+							.padding(.top, -60)
                             
                             HStack{
                                 ZStack{
@@ -434,6 +434,7 @@ struct CuriosidadesExternoIpad: View {
                     .ignoresSafeArea()
                     
                 }
+				.environment(\.colorScheme, .light)
             }
         }
     }

@@ -8,106 +8,100 @@
 import SwiftUI
 
 struct EscolherAmbienteIpadView: View {
-    
-    @Environment(\.horizontalSizeClass) var tamanhoHorizontal
-    @Environment(\.verticalSizeClass) var tamanhoVertical
-    
+
+    @State private var ambienteSelecionado: String?
+
     var body: some View {
-        GeometryReader{ geo in
-            
+
+        GeometryReader { geo in
+
             let modoPaisagem = geo.size.width > geo.size.height
-            
-            let tituloSize =  50.0
-            
-            let textoSize = 30.0
-            
-            let larguraTexto = geo.size.width * 0.50
-            
-            let tamanhoElipse = geo.size.width * 0.18
-            
-            var noiIPad: Bool { tamanhoVertical == .regular && tamanhoHorizontal == .regular}
-            
-            if modoPaisagem {
-                VStack {
-                    ZStack{
-                        HStack {
-                            Image("EllipseIpad")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(height:tamanhoElipse)
-                        }
-                        
-                        Text("Escolha do ambiente")
-                            .font(.custom("Lalezar-Regular", size: tituloSize, relativeTo: .title))
-                            .foregroundColor(.corFonteVerdeEscuro)
-                    }
-                    
-                    
-                    Text("Em qual ambiente gostaria de ver o seu Girassol?")
-                        .font(.custom("CreatoDisplay-Regular", size: textoSize, relativeTo: .body))
-                        .foregroundColor(.corFonteVerdeEscuro)
-                        .multilineTextAlignment(.center)
-                        .lineLimit(2)
-                        Spacer()
-                    HStack{
-                        Spacer()
-                        BotaoEscolherAmbienteHorizontalView(botao  :BotaoEscolherAmbienteViewModel.botaoAmbiente[0])
-                         Spacer()
-                        BotaoEscolherAmbienteHorizontalView(botao  :BotaoEscolherAmbienteViewModel.botaoAmbiente[1])
-                        
-                        Spacer()
-                        
-                    }
-                    Spacer()
-                    BotaoPrincipalView()
-                        .frame(width: 249)
-                    Spacer()
-                }
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .background(Color.corFundoBege)
+
+            let titulo = geo.size.width * 0.04
+            let texto = geo.size.width * 0.025
+            let larguraTexto = geo.size.width * 0.5
+
+            ZStack(alignment: .topTrailing) {
+
                 
-            }else {
+
+                Image("Vector 35")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: geo.size.width * 0.22)
+                    .ignoresSafeArea()
+                    .offset(x: geo.size.width * 0.02,y: -geo.size.height * 0.02)
+
                 VStack {
-                    
+
                     Spacer()
-                    ZStack{
-                        HStack {
-                            Image("EllipseIpad")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(height:tamanhoElipse)
-                        }
-                        
-                        Text("Escolha do ambiente")
-                            .font(.custom("Lalezar-Regular", size: tituloSize))
+                    Text("Escolha do ambiente")
+                        .font(.custom("Lalezar-Regular", size: titulo))
+                        .foregroundColor(.corFonteVerdeEscuro)
+                        .padding(.bottom,geo.size.width *  0.040)
+                    VStack{
+                        Text("Em qual ambiente gostaria de ver o seu Girassol?")
+                            .font(.custom("CreatoDisplay-regular", size: texto))
                             .foregroundColor(.corFonteVerdeEscuro)
+                            .multilineTextAlignment(.center)
+                            .lineLimit(nil)
+                            .frame(width: larguraTexto)
                     }
                     
-                    .padding(.bottom, 10 )
-                    Text("Em qual ambiente gostaria de ver o seu Girassol?")
-                        .font(.custom("CreatoDisplay-Regular", size: textoSize))
-                        .foregroundColor(.corFonteVerdeEscuro)
-                        .multilineTextAlignment(.center)
-                        .lineLimit(2)
-                        .frame(width: larguraTexto)
-                    
-                    BotaoEscolherAmbienteView(
-                        botao: BotaoEscolherAmbienteViewModel.botaoAmbiente[0]
-                    )
-                    BotaoEscolherAmbienteView(
-                        botao: BotaoEscolherAmbienteViewModel.botaoAmbiente[1]
-                    )
-                    
+                    .padding(.bottom, geo.size.width * 0.050)
+
+
+                    if modoPaisagem {
+                        Spacer()
+                        HStack(spacing: geo.size.width * 0.035) {
+                            
+                            BotaoEscolherAmbienteHorizontalView(
+                                botao: BotaoEscolherAmbienteViewModel.botaoAmbiente[0],
+                                ambienteSelecionado: $ambienteSelecionado)
+
+                            BotaoEscolherAmbienteHorizontalView(
+                                botao: BotaoEscolherAmbienteViewModel.botaoAmbiente[1],
+                                ambienteSelecionado: $ambienteSelecionado)
+                            
+                            
+                        }
+                        .padding(.bottom, geo.size.width * 0.070)
+                        
+
+                    } else {
+
+                        VStack(spacing: 30) {
+
+                            BotaoEscolherAmbienteView(
+                                botao: BotaoEscolherAmbienteViewModel.botaoAmbiente[0],
+                                ambienteSelecionado: $ambienteSelecionado)
+
+                            .frame(width: geo.size.width * 0.70)
+                            .frame(height: geo.size.width * 0.80 * (180 / 323))
+
+                            .padding(.bottom, geo.size.width * -0.03)
+
+                            BotaoEscolherAmbienteView(
+                                botao: BotaoEscolherAmbienteViewModel.botaoAmbiente[1],
+                                ambienteSelecionado: $ambienteSelecionado)
+
+                            .frame(width: geo.size.width * 0.70)
+                            .frame(height: geo.size.width * 0.80 * (180 / 323))
+                        }
+                    }
                     Spacer()
                     BotaoPrincipalView()
-                        .frame(width: 249)
-                    Spacer()
+                        .frame(width: geo.size.width * 0.4)
+                        .disabled(ambienteSelecionado == nil)
+                        .padding(.bottom, 40)
+                    
                 }
+
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .background(Color.corFundoBege)
             }
+
+            .background(Color.corFundoBege)
         }
-        
     }
 }
 

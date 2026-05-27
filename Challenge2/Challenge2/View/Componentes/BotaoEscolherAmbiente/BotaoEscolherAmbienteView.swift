@@ -7,64 +7,80 @@
 
 import SwiftUI
 
-
-
 struct BotaoEscolherAmbienteView: View {
 
     var botao: BotaoEscolherAmbienteModel
-    @Environment(\.horizontalSizeClass) var horizontalSizeClass
+    @Binding var ambienteSelecionado: String?
 
     var body: some View {
-        
-        let noIPad = horizontalSizeClass == .regular
-        
-        let larguraImage: CGFloat = noIPad ? 580.0 : 323.0
-        
-        let alturaImage = larguraImage * (180.0 / 323.0)
-        
-        let espacamentobotoes = noIPad ? 90.0: 20.0
-        
-        let infobotaolargura = noIPad ? 80.0: 66.0
-        
-        let infobotaotamanho = noIPad ? 67.0 : 55.0
-        
-        let paddinginfo = noIPad ? 0.0: 3.0
-        
-        let botaotexto = noIPad ? 32.0: 20.0
+            
 
-        
-        ZStack(alignment: .topTrailing) {
-            Image(botao.img)
-                .resizable()
-                .scaledToFill()
-                .frame(width: larguraImage, height: alturaImage)
-                .clipped()
-                .cornerRadius(25)
-            VStack {
-                HStack {
-                    Spacer()
-                    Image("botaoInfo")
-                        .resizable()
-                        .frame(width: infobotaolargura, height: infobotaotamanho)
+        GeometryReader { geo in
+
+            let largura = geo.size.width * 1.0
+            let altura = largura * (180 / 323)
+
+            
+           
+
+            let textoSize = largura * 0.065
+            let paddingTexto = altura * 0.02
+
+            let selecionado =
+            ambienteSelecionado == botao.texto
+
+            ZStack(alignment: .topTrailing) {
+
+                Image(botao.img)
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: .infinity, height: .infinity)
+                    .clipped()
                     
+
+                VStack {
+
+                    HStack {
+
+                        Spacer()
+
+                        
+                    }
+
+                    Spacer()
+
+                    Text(botao.texto)
+                        .font(.custom("Lalezar-Regular", size: textoSize))
+                        .fontWeight(.bold)
+                        .foregroundColor(.white)
+                        .padding(.bottom, paddingTexto)
                 }
-                Spacer()
-                Text(botao.texto)
-                    .font(.custom("Lalezar-Regular", size: botaotexto))
-                    .fontWeight(.bold)
-                    .foregroundColor(.white)
-                    .padding(.bottom, paddinginfo)
             }
+
+            .scaleEffect(selecionado ? 1.05 : 1)
+
+            .animation(
+                .spring(response: 0.3, dampingFraction: 0.7),
+                value: selecionado
+            )
+
+            .onTapGesture {
+
+                ambienteSelecionado =
+                ambienteSelecionado == botao.texto
+                ? nil
+                : botao.texto
+            }
+
+            .frame(width: largura, height: altura)
         }
-        .frame(width: 323)
-        .frame(maxHeight: 163)
-        .padding(espacamentobotoes)
     }
 }
 
 #Preview {
-    BotaoEscolherAmbienteView(botao  :BotaoEscolherAmbienteViewModel.botaoAmbiente[0])
-    BotaoEscolherAmbienteView(botao  :BotaoEscolherAmbienteViewModel.botaoAmbiente[1])
+
+    @Previewable @State var ambienteSelecionado: String? = "Jardim"
     
-    
+    BotaoEscolherAmbienteView(botao: BotaoEscolherAmbienteViewModel.botaoAmbiente[0] , ambienteSelecionado: $ambienteSelecionado)
+        .frame(width: 320)
 }

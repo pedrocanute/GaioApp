@@ -1,4 +1,11 @@
 //
+//  CuriosidadesInterno.swift
+//  Challenge2
+//
+//  Created by Pedro Monge Silveira on 27/05/26.
+//
+
+//
 //  CuriosidadesExterno.swift
 //  Challenge2
 //
@@ -7,9 +14,9 @@
 
 import SwiftUI
 
-struct CuriosidadesExterno: View {
+struct CuriosidadesInterno: View {
     
-    @StateObject private var pesquisaExteno = FAQVCuriosidadeExternoViewModel()
+    @StateObject private var pesquisaInterno = FAQVCuriosidadeInternoViewModel()
     
     @Environment(\.horizontalSizeClass) var tamanhoHorizontal
     
@@ -35,7 +42,7 @@ struct CuriosidadesExterno: View {
                         .foregroundStyle(Color.corFonteVerdeEscuro)
                 
                     
-            List(pesquisaExteno.questions) { question in
+                List(pesquisaInterno.questionsInterno) { question in
                 DisclosureGroup {
                     Image(question.image )
                         .resizable()
@@ -69,8 +76,10 @@ struct CuriosidadesExterno: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        CuriosidadesExterno()
-    }
+#Preview {
+    CuriosidadesInterno()
 }
+
+      
+    
+

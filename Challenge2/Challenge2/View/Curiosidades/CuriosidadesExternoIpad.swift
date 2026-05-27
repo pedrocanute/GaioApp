@@ -9,6 +9,7 @@ import SwiftUI
 
 
 struct CuriosidadesExternoIpad: View {
+	@Binding var path: [RotaApp]
     @StateObject private var pesquisaExteno = FAQVCuriosidadeExternoViewModel()
     
     @Environment(\.horizontalSizeClass) var tamanhoHorizontal

@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct CuriosidadesExterno: View {
+	@Binding var path: [RotaApp]
     
     @StateObject private var pesquisaExteno = FAQVCuriosidadeExternoViewModel()
     

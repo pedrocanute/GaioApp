@@ -7,31 +7,32 @@
 import SwiftUI
 
 struct EscolherPlantaIPhoneView: View {
-	var body: some View {
-		VStack(alignment: .center) {
-			Spacer()
-			Image("logoGaio").resizable()
-				.frame(maxWidth: 256, maxHeight: 308)
-			Spacer()
-			Text("Bem-vindo(a) ao Gaio")
-				.font(.custom("CreatoDisplay-Regular", size: 20))
-                .foregroundStyle(.black)
-			Spacer()
-			
-			ZStack {
-				PainelEscolhaView()
-			}
-			.frame(height: 300)
-		}
-		.background(Color.corFundoBege.ignoresSafeArea())
-//		.safeAreaInset(edge: .bottom, spacing: 0) {
-//			Color.corFundoVerdeEscuro
-//				.frame(height: 0)
-//				.background(Color.corFundoVerdeEscuro.ignoresSafeArea())
-//		}
-	}
+var body: some View {
+NavigationStack{
+VStack(alignment: .center) {
+
+Spacer()
+
+Image("logoGaio").resizable()
+.frame(maxWidth: 256, maxHeight: 308)
+Spacer()
+
+Text("O quebra-galho do cultivo de plantas")
+.font(.custom("CreatoDisplay-Regular", size: 20))
+.multilineTextAlignment(.center)
+.foregroundStyle(.black)
+
+Spacer()
+
+PainelEscolhaView(destino: EscolherAmbienteIphoneView())
+.frame(height: 300)
+
+}
+.background(Color.corFundoBege.ignoresSafeArea())
+}
+}
 }
 
 #Preview {
-	EscolherPlantaIPhoneView()
+EscolherPlantaIPhoneView()
 }

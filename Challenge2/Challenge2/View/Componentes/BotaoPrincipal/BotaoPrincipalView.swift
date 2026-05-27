@@ -18,7 +18,7 @@ struct BotaoPrincipalView: View {
 				.foregroundStyle(Color.corBotaoPrincipal)
 				.cornerRadius(20)
 			Text(textoBotao)
-				.font(.custom("CreatoDisplay-Medium", size: 20))
+				.font(.custom("CreatoDisplay-Medium", size: 18))
 				.foregroundStyle(Color.white)
 		}
 	}

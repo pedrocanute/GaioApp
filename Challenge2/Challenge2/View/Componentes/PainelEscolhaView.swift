@@ -7,6 +7,9 @@
 import SwiftUI
 
 struct PainelEscolhaView<Destino: View>: View {
+    @StateObject var viewModel = PickerViewModel()
+    
+       @State private var navigate = false
 	let destino: Destino
 	var body: some View {
 		ZStack{
@@ -34,7 +37,16 @@ struct PainelEscolhaView<Destino: View>: View {
 				}
 				
 				NavigationLink {
-					destino
+                    switch viewModel.plantaSelecionada.nome {
+                    case "Girassol":
+                        EscolherAmbienteView()
+                    case "Planta Carnivora":
+                        EscolherPlantaView()
+                    case "Costela-de-Adão":
+                        EscolherPlantaView()
+                    default:
+                        EscolherPlantaView()
+                    }
 				} label: {
 					BotaoPrincipalView(textoBotao: "Confirmar")
 						.frame(width: 209)

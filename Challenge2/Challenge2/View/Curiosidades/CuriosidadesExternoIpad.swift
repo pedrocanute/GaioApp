@@ -48,7 +48,7 @@ struct CuriosidadesExternoIpad: View {
 							VStack{
 								Text("Curiosidades do ")
 									.padding(.bottom, -50)
-								Text("Girassol Interno")
+								Text("Girassol Externo")
 								
 							}
 							.font(.custom("lalezar-regular", size: 50, relativeTo: .title3))
@@ -233,7 +233,7 @@ struct CuriosidadesExternoIpad: View {
 							VStack{
 								Text("Curiosidades do ")
 									.padding(.bottom, -50)
-								Text("Girassol Interno")
+								Text("Girassol Externo")
 								
 							}
 							.font(.custom("lalezar-regular", size: 50, relativeTo: .title3))

@@ -12,7 +12,6 @@ struct EscolherAmbienteIphoneView: View {
     @State private var ambienteSelecionado: String?
 
     var body: some View {
-        NavigationStack{
             GeometryReader { geo in
                 let textoSize = geo.size.width * 0.05
                 let larguraTexto = geo.size.width * 0.80
@@ -52,24 +51,37 @@ struct EscolherAmbienteIphoneView: View {
                             botao: BotaoEscolherAmbienteViewModel.botaoAmbiente[0],
                             ambienteSelecionado: $ambienteSelecionado
                         )
-                        NavigationLink{
-							CuriosidadesExterno(path: $path)
+                        Button{
+							path.append(.curiosidades(interno: false))
                         }label: {
                             Image("botaoInfo")
                                 .resizable()
                                 .frame(width: infoLargura, height: infoAltura)
-                                .position(x: geo.size.width * 0.65,y: geo.size.width * 0.08)
                         }
+						.position(x: geo.size.width * 0.65,y: geo.size.width * 0.08)
                     }
                     .frame(width: geo.size.width * 0.73)
                     .frame(height: geo.size.width * 0.8 * (180 / 323))
-
-                    BotaoEscolherAmbienteView(
-                        botao: BotaoEscolherAmbienteViewModel.botaoAmbiente[1],
-                        ambienteSelecionado: $ambienteSelecionado
-                    )
-                    .frame(width: geo.size.width * 0.73)
-                    .frame(height: geo.size.width * 0.8 * (180 / 323))
+					
+					ZStack {
+						
+						BotaoEscolherAmbienteView(
+							botao: BotaoEscolherAmbienteViewModel.botaoAmbiente[1],
+							ambienteSelecionado: $ambienteSelecionado
+						)
+						
+						Button{
+							path.append(.curiosidades(interno: false))
+						}label: {
+							Image("botaoInfo")
+								.resizable()
+								.frame(width: infoLargura, height: infoAltura)
+						}
+						.position(x: geo.size.width * 0.65,y: geo.size.width * 0.08)
+						
+					}
+					.frame(width: geo.size.width * 0.73)
+					.frame(height: geo.size.width * 0.8 * (180 / 323))
 
                     Spacer()
 
@@ -79,7 +91,7 @@ struct EscolherAmbienteIphoneView: View {
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .background(Color.corFundoBege)
-            }
+            
         }
     }
 }

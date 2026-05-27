@@ -15,6 +15,7 @@
 import SwiftUI
 
 struct CuriosidadesInterno: View {
+	@Binding var path: [RotaApp]
     
     @StateObject private var pesquisaInterno = FAQVCuriosidadeInternoViewModel()
     
@@ -68,16 +69,17 @@ struct CuriosidadesInterno: View {
             .scrollContentBackground(.hidden)
             .cornerRadius(40)
             
-                
 
             }
             .background(Color.corFundoBege)
         }
+		.environment(\.colorScheme, .light)
     }
 }
 
 #Preview {
-    CuriosidadesInterno()
+	@Previewable @State var path: [RotaApp] = []
+	CuriosidadesInterno(path: $path)
 }
 
       

@@ -9,7 +9,6 @@ import SwiftUI
 struct EscolherPlantaIPhoneView: View {
 	@Binding var path: [RotaApp]
 	var body: some View {
-		NavigationStack{
 			VStack(alignment: .center) {
 				
 				Spacer()
@@ -25,12 +24,12 @@ struct EscolherPlantaIPhoneView: View {
 				
 				Spacer()
 				
-				PainelEscolhaView(path: $path, destino: EscolherAmbienteIpadView(path: $path))
+				PainelEscolhaView(path:$path)
 					.frame(height: 300)
 				
 			}
 			.background(Color.corFundoBege.ignoresSafeArea())
-		}
+		
 	}
 }
 

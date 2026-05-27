@@ -20,9 +20,6 @@ struct BotaoEscolherAmbienteView: View {
             let largura = geo.size.width * 1.0
             let altura = largura * (180 / 323)
 
-            
-           
-
             let textoSize = largura * 0.065
             let paddingTexto = altura * 0.02
 
@@ -41,10 +38,7 @@ struct BotaoEscolherAmbienteView: View {
                 VStack {
 
                     HStack {
-
                         Spacer()
-
-                        
                     }
 
                     Spacer()

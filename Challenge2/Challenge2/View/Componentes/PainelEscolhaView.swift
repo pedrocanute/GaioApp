@@ -1,68 +1,68 @@
-//
-//  EscolhaUmaPlantaView.swift
-//  Challenge2
-//
-//  Created by Pedro Canute on 18/05/26.
-//
 import SwiftUI
 
-struct PainelEscolhaView<Destino: View>: View {
-    @StateObject var viewModel = PickerViewModel()
+struct PainelEscolhaView: View {
+	
+	@StateObject private var viewModel = PickerViewModel()
 	@Binding var path: [RotaApp]
 	
-       @State private var navigate = false
-	let destino: Destino
 	var body: some View {
-		ZStack{
+		ZStack {
 			Rectangle()
 				.frame(maxWidth: .infinity, maxHeight: .infinity)
 				.foregroundStyle(.corFundoVerdeEscuro)
 				.ignoresSafeArea()
 			
-			VStack(spacing: 15){
+			VStack(spacing: 15) {
 				Text("Escolha uma planta")
 					.font(.custom("Lalezar-Regular", size: 30))
 					.foregroundStyle(.white)
-				ZStack{
+				
+				ZStack {
 					Rectangle()
-					.foregroundColor(.clear)
-					.frame(width: 198, height: 33)
-					.overlay(
-						RoundedRectangle(cornerRadius: 20)
-						.inset(by: 0.5)
-						.stroke(.white, lineWidth: 1)
-					)
+						.foregroundColor(.clear)
+						.frame(width: 198, height: 33)
+						.overlay(
+							RoundedRectangle(cornerRadius: 20)
+								.inset(by: 0.5)
+								.stroke(.white, lineWidth: 1)
+						)
 					
 					PlantaPickerView()
 						.frame(width: 220)
 				}
 				
-				NavigationLink {
-                    switch viewModel.plantaSelecionada.nome {
-                    case "Girassol":
-						EscolherAmbienteView(path: $path)
-                    case "Planta Carnivora":
-                        SemPlantaView(path: $path)
-                    case "Costela-de-Adão":
-                        SemPlantaView(path: $path)
-                    default:
-						EscolherPlantaView(path: $path)
-                    }
+				Button {
+					navegarComBaseNaPlanta()
 				} label: {
 					BotaoPrincipalView(textoBotao: "Confirmar")
 						.frame(width: 209)
 				}
 				.buttonStyle(.plain)
-				
-					
 			}
 			.frame(maxWidth: .infinity)
 			.frame(height: 200)
 		}
 	}
+	
+	func navegarComBaseNaPlanta() {
+		switch viewModel.plantaSelecionada.nome {
+		case "Girassol":
+			path.append(.escolherAmbiente)
+			
+		case "Planta Carnivora":
+			path.append(.semPlanta)
+			
+		case "Costela-de-Adão":
+			path.append(.semPlanta)
+			
+		default:
+			path.append(.semPlanta)
+		}
+	}
 }
 
-//#Preview {
-//	@Previewable @State var path: [RotaApp] = []
-//	PainelEscolhaView(path: $path, destino: <#Destino#>)
-//}
+#Preview {
+	@Previewable @State var path: [RotaApp] = []
+	
+	PainelEscolhaView(path: $path)
+}

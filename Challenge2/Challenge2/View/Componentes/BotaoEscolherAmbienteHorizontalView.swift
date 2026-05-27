@@ -1,101 +1,106 @@
-//
-//  BotaoEscolherAmbienteHorizontalView.swift
-//  Challenge2
-//
-//  Created by Guilherme Alves de Souza on 21/05/26.
-//
-
 import SwiftUI
 
 struct BotaoEscolherAmbienteHorizontalView: View {
 
-    var botao: BotaoEscolherAmbienteModel
-    @Binding var ambienteSelecionado: String?
+	var botao: BotaoEscolherAmbienteModel
 
-    var body: some View {
+	@Binding var ambienteSelecionado: String?
 
-        GeometryReader { geo in
+	var body: some View {
 
-            let largura = geo.size.width
-            let altura = geo.size.height
+		GeometryReader { geo in
 
-            let infoLargura = largura * 0.20
-            let infoAltura = infoLargura * 0.83
+			let largura = geo.size.width
+			let altura = geo.size.height
 
-            let textoSize = largura * 0.06
+			let textoSize = largura * 0.06
 
-            let selecionado = ambienteSelecionado == botao.texto
+			let selecionado =
+			ambienteSelecionado == botao.texto
 
-            ZStack(alignment: .topTrailing) {
+			ZStack(alignment: .topTrailing) {
 
-                Image(botao.img)
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: largura, height: altura)
-                    .clipped()
-                    .cornerRadius(geo.size.width * 0.068)
-                    
-                
-                VStack {
+				Image(botao.img)
+					.resizable()
+					.scaledToFill()
+					.frame(width: largura, height: altura)
+					.clipped()
+					.cornerRadius(
+						geo.size.width * 0.068
+					)
 
-                    HStack (alignment: .top)  {
-                        Spacer()
+				VStack {
 
-                        Image("botaoInfo")
-                            .resizable()
-                            .frame(width: infoLargura, height: infoAltura)
-                    }
+					Spacer()
 
-                    Spacer()
+					Text(botao.texto)
+						.font(
+							.custom(
+								"Lalezar-Regular",
+								size: textoSize
+							)
+						)
 
-                    Text(botao.texto)
-                        .font(.custom("Lalezar-Regular", size: textoSize))
-                        .foregroundColor(.white)
-                        .padding(.bottom, altura * 0.03)
-                }
-            }
+						.foregroundColor(.white)
 
-            .scaleEffect(selecionado ? 1.05 : 1)
+						.frame(maxWidth: .infinity)
 
-            .animation(.spring(response: 0.35, dampingFraction: 0.7), value: selecionado)
+						.padding(
+							.bottom,
+							altura * 0.03
+						)
+				}
+			}
 
-            .onTapGesture {
-                ambienteSelecionado =
-                ambienteSelecionado == botao.texto
-                ? nil
-                : botao.texto
-            }
-        }
+			.scaleEffect(
+				selecionado ? 1.05 : 1
+			)
 
-        .frame(width: 500, height: 280)
-    }
+			.animation(
+				.spring(
+					response: 0.35,
+					dampingFraction: 0.7
+				),
+				value: selecionado
+			)
+
+			.onTapGesture {
+
+				ambienteSelecionado =
+				ambienteSelecionado == botao.texto
+				? nil
+				: botao.texto
+			}
+		}
+
+		.frame(width: 500, height: 280)
+	}
 }
 
 #Preview {
 
-    struct PreviewWrapper: View {
+	@Previewable @State var ambienteSelecionado: String?
 
-        @State var ambiente: String?
+	VStack {
 
-        var body: some View {
+		BotaoEscolherAmbienteHorizontalView(
+			botao:
+				BotaoEscolherAmbienteViewModel
+				.botaoAmbiente[0],
 
-            VStack {
+			ambienteSelecionado:
+				$ambienteSelecionado
+		)
 
-                BotaoEscolherAmbienteHorizontalView(
-                    botao: BotaoEscolherAmbienteViewModel.botaoAmbiente[0],
-                    ambienteSelecionado: $ambiente
-                )
-                
-                Spacer()
+		Spacer()
 
-                BotaoEscolherAmbienteHorizontalView(
-                    botao: BotaoEscolherAmbienteViewModel.botaoAmbiente[1],
-                    ambienteSelecionado: $ambiente
-                )
-                
-            }
-        }
-    }
+		BotaoEscolherAmbienteHorizontalView(
+			botao:
+				BotaoEscolherAmbienteViewModel
+				.botaoAmbiente[1],
 
-    return PreviewWrapper()
+			ambienteSelecionado:
+				$ambienteSelecionado
+		)
+	}
 }

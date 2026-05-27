@@ -18,7 +18,7 @@ struct EscolherPlantaIPadView: View {
 					ZStack{
 						Color.corFundoVerdeEscuro
 							.ignoresSafeArea()
-						PainelEscolhaView(path: $path, destino: EscolherAmbienteIpadView(path: $path))
+						PainelEscolhaView(path: $path)
 						
 					}
 					.frame(maxWidth: geo.size.width * 0.40, maxHeight: .infinity)
@@ -57,7 +57,7 @@ struct EscolherPlantaIPadView: View {
 							.foregroundStyle(.black)
 						Spacer()
 						ZStack{
-						PainelEscolhaView(path: $path, destino: EscolherAmbienteIpadView(path: $path))
+						PainelEscolhaView(path: $path)
 						}
 						.frame(height: geo.size.width / 2.4)
 					}

@@ -11,6 +11,7 @@
 //	case escolherAmbiente
 //	case curiosidades
 //	case simulador
+//	case semPlanta
 //}
 //
 //struct Navegacao: View {

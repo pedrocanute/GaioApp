@@ -22,9 +22,6 @@ struct EscolherAmbienteIpadView: View {
             let larguraTexto = geo.size.width * 0.5
 
             ZStack(alignment: .topTrailing) {
-
-                
-
                 Image("Vector 35")
                     .resizable()
                     .scaledToFit()
@@ -33,7 +30,6 @@ struct EscolherAmbienteIpadView: View {
                     .offset(x: geo.size.width * 0.02,y: -geo.size.height * 0.02)
 
                 VStack {
-
                     Spacer()
                     Text("Escolha do ambiente")
                         .font(.custom("Lalezar-Regular", size: titulo))
@@ -47,14 +43,11 @@ struct EscolherAmbienteIpadView: View {
                             .lineLimit(nil)
                             .frame(width: larguraTexto)
                     }
-                    
                     .padding(.bottom, geo.size.width * 0.050)
-
 
                     if modoPaisagem {
                         Spacer()
                         HStack(spacing: geo.size.width * 0.035) {
-                            
                             BotaoEscolherAmbienteHorizontalView(
                                 botao: BotaoEscolherAmbienteViewModel.botaoAmbiente[0],
                                 ambienteSelecionado: $ambienteSelecionado)
@@ -62,29 +55,20 @@ struct EscolherAmbienteIpadView: View {
                             BotaoEscolherAmbienteHorizontalView(
                                 botao: BotaoEscolherAmbienteViewModel.botaoAmbiente[1],
                                 ambienteSelecionado: $ambienteSelecionado)
-                            
-                            
                         }
                         .padding(.bottom, geo.size.width * 0.070)
-                        
-
                     } else {
-
                         VStack(spacing: 30) {
-
                             BotaoEscolherAmbienteView(
                                 botao: BotaoEscolherAmbienteViewModel.botaoAmbiente[0],
                                 ambienteSelecionado: $ambienteSelecionado)
-
                             .frame(width: geo.size.width * 0.70)
                             .frame(height: geo.size.width * 0.80 * (180 / 323))
-
                             .padding(.bottom, geo.size.width * -0.03)
 
                             BotaoEscolherAmbienteView(
                                 botao: BotaoEscolherAmbienteViewModel.botaoAmbiente[1],
                                 ambienteSelecionado: $ambienteSelecionado)
-
                             .frame(width: geo.size.width * 0.70)
                             .frame(height: geo.size.width * 0.80 * (180 / 323))
                         }
@@ -94,12 +78,9 @@ struct EscolherAmbienteIpadView: View {
                         .frame(width: geo.size.width * 0.4)
                         .disabled(ambienteSelecionado == nil)
                         .padding(.bottom, 40)
-                    
                 }
-
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
             }
-
             .background(Color.corFundoBege)
         }
     }

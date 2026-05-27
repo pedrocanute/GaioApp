@@ -6,7 +6,8 @@
 //
 import SwiftUI
 
-struct PainelEscolhaView: View {
+struct PainelEscolhaView<Destino: View>: View {
+	let destino: Destino
 	var body: some View {
 		ZStack{
 			Rectangle()
@@ -32,14 +33,14 @@ struct PainelEscolhaView: View {
 						.frame(width: 220)
 				}
 				
-				Button{
-					
+				NavigationLink {
+					destino
 				} label: {
-					
-					BotaoPrincipalView()
+					BotaoPrincipalView(textoBotao: "Confirmar")
 						.frame(width: 209)
 				}
 				.buttonStyle(.plain)
+				
 					
 			}
 			.frame(maxWidth: .infinity)
@@ -49,6 +50,6 @@ struct PainelEscolhaView: View {
 }
 
 #Preview {
-	PainelEscolhaView()
+//	PainelEscolhaView(destino: <#Destino#>)
 		
 }

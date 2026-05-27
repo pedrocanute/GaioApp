@@ -21,15 +21,15 @@ struct CuriosidadesView: View {
 	var body: some View {
 		if noIpad {
 			if interno {
-				CuriosidadesInternoIpad()
+				CuriosidadesInternoIpad(path: $path)
 			} else {
-				CuriosidadesExternoIpad()
+				CuriosidadesExternoIpad(path: $path)
 			}
 		} else {
 			if interno {
 				CuriosidadesExterno() //arrumar
 			} else {
-				CuriosidadesExterno()
+				CuriosidadesExterno(path: $path)
 			}
 		}
 	}

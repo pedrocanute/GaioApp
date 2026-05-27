@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SemPlantaIpadView: View {
+	@Binding var path: [RotaApp]
 	var body: some View {
 		GeometryReader { geo in
 			let modoPaisagem = geo.size.width > geo.size.height
@@ -56,5 +57,8 @@ struct SemPlantaIpadView: View {
 }
 
 #Preview {
-	SemPlantaIpadView()
+
+	@Previewable @State var path: [RotaApp] = []
+	SemPlantaIpadView(path: $path)
+
 }

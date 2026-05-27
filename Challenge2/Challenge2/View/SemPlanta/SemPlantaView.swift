@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SemPlantaView: View {
+	@Binding var path: [RotaApp]
 	
 	@Environment(\.horizontalSizeClass) var tamanhoHorizontal
 	@Environment(\.verticalSizeClass) var tamanhoVertical
@@ -16,9 +17,9 @@ struct SemPlantaView: View {
 	
 	var body: some View {
 		if noIPad {
-			SemPlantaIpadView()
+			SemPlantaIpadView(path: $path)
 		} else {
-			SemPlantaIphoneView()
+			SemPlantaIphoneView(path: $path)
 		}
 	}
 }

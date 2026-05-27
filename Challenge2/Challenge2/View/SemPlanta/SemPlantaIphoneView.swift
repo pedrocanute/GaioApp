@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SemPlantaIphoneView: View {
+	@Binding var path: [RotaApp]
 	var body: some View {
 								
 				ZStack{
@@ -33,5 +34,8 @@ struct SemPlantaIphoneView: View {
 }
 
 #Preview {
-	SemPlantaIphoneView()
+
+	@Previewable @State var path: [RotaApp] = []
+	SemPlantaIphoneView(path: $path)
+
 }

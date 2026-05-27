@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct CuriosidadesInternoIpad: View {
+	@Binding var path: [RotaApp]
 	@StateObject private var textos = CuriosidadesInternoViewModel()
 	
 	@StateObject private var textosExterno = CuriosidadesViewModel()

@@ -14,15 +14,12 @@ struct EscolherPlantaView: View {
 	var noIPad: Bool { tamanhoVertical == .regular && tamanhoHorizontal == .regular}
 	
 	var body: some View {
-		NavigationStack{
 			
 			if noIPad {
-				EscolherPlantaIPadView()
+				EscolherPlantaIPadView(path: $path)
 			} else {
 				EscolherPlantaIPhoneView()
 			}
-			
-		}
 	}
 }
 

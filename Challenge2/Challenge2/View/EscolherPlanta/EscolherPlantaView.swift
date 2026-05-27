@@ -7,6 +7,7 @@
 import SwiftUI
 
 struct EscolherPlantaView: View {
+	@Binding var path: [RotaApp]
 	
 	@Environment(\.horizontalSizeClass) var tamanhoHorizontal
 	@Environment(\.verticalSizeClass) var tamanhoVertical
@@ -18,12 +19,12 @@ struct EscolherPlantaView: View {
 			if noIPad {
 				EscolherPlantaIPadView(path: $path)
 			} else {
-				EscolherPlantaIPhoneView()
+				EscolherPlantaIPhoneView(path: $path)
 			}
 	}
 }
 
 #Preview {
-	
-	EscolherPlantaView()
+	@Previewable @State var path: [RotaApp] = []
+	EscolherPlantaView(path: $path)
 }

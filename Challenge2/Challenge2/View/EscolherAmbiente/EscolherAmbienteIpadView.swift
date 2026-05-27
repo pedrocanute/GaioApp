@@ -87,5 +87,6 @@ struct EscolherAmbienteIpadView: View {
 }
 
 #Preview {
-    EscolherAmbienteIpadView()
+	@Previewable @State var path: [RotaApp] = []
+    EscolherAmbienteIpadView(path: $path)
 }

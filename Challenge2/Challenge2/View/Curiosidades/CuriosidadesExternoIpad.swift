@@ -442,5 +442,6 @@ struct CuriosidadesExternoIpad: View {
 }
 
 #Preview {
-    CuriosidadesExternoIpad()
+	@Previewable @State var path: [RotaApp] = []
+	CuriosidadesExternoIpad(path: $path)
 }

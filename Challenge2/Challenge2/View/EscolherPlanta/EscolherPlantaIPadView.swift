@@ -7,7 +7,7 @@
 import SwiftUI
 
 struct EscolherPlantaIPadView: View {
-	
+	@Binding var path: [RotaApp]
 
 	var body: some View {
 		GeometryReader { geo in
@@ -18,7 +18,7 @@ struct EscolherPlantaIPadView: View {
 					ZStack{
 						Color.corFundoVerdeEscuro
 							.ignoresSafeArea()
-						PainelEscolhaView(destino: EscolherAmbienteIpadView(path: $path))
+						PainelEscolhaView(path: $path, destino: EscolherAmbienteIpadView(path: $path))
 						
 					}
 					.frame(maxWidth: geo.size.width * 0.40, maxHeight: .infinity)
@@ -57,7 +57,7 @@ struct EscolherPlantaIPadView: View {
 							.foregroundStyle(.black)
 						Spacer()
 						ZStack{
-						PainelEscolhaView(destino: EscolherAmbienteIpadView())
+						PainelEscolhaView(path: $path, destino: EscolherAmbienteIpadView(path: $path))
 						}
 						.frame(height: geo.size.width / 2.4)
 					}
@@ -72,5 +72,6 @@ struct EscolherPlantaIPadView: View {
 	}
 }
 #Preview {
-	EscolherPlantaIPadView()
+	@Previewable @State var path: [RotaApp] = []
+	EscolherPlantaIPadView(path: $path)
 }

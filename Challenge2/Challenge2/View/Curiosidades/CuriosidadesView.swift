@@ -27,7 +27,7 @@ struct CuriosidadesView: View {
 			}
 		} else {
 			if interno {
-				CuriosidadesExterno() //arrumar
+				CuriosidadesExterno(path: $path) //arrumar
 			} else {
 				CuriosidadesExterno(path: $path)
 			}

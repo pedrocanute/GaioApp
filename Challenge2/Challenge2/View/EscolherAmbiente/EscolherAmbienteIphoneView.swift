@@ -53,7 +53,7 @@ struct EscolherAmbienteIphoneView: View {
                             ambienteSelecionado: $ambienteSelecionado
                         )
                         NavigationLink{
-                            CuriosidadesExterno()
+							CuriosidadesExterno(path: $path)
                         }label: {
                             Image("botaoInfo")
                                 .resizable()
@@ -85,5 +85,6 @@ struct EscolherAmbienteIphoneView: View {
 }
 
 #Preview {
-    EscolherAmbienteIphoneView()
+	@Previewable @State var path: [RotaApp] = []
+	EscolherAmbienteIphoneView(path: $path)
 }

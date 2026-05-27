@@ -18,14 +18,15 @@ struct EscolherAmbienteView: View {
     var body: some View {
             
             if noIPad {
-                EscolherAmbienteIpadView()
+                EscolherAmbienteIpadView(path: $path)
             } else {
-                EscolherAmbienteIphoneView()
+				EscolherAmbienteIphoneView(path: $path)
             }
     }
 }
 
 #Preview {
+	@Previewable @State var path: [RotaApp] = []
 	EscolherAmbienteView(path: $path)
 }
 

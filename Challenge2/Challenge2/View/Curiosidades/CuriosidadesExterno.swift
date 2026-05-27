@@ -72,8 +72,7 @@ struct CuriosidadesExterno: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        CuriosidadesExterno()
-    }
+#Preview {
+	@Previewable @State var path: [RotaApp] = []
+	CuriosidadesExterno(path: $path)
 }

@@ -7,6 +7,7 @@
 import SwiftUI
 
 struct EscolherPlantaIPhoneView: View {
+	@Binding var path: [RotaApp]
 	var body: some View {
 		NavigationStack{
 			VStack(alignment: .center) {
@@ -24,7 +25,7 @@ struct EscolherPlantaIPhoneView: View {
 				
 				Spacer()
 				
-				PainelEscolhaView(destino: EscolherAmbienteIphoneView())
+				PainelEscolhaView(path: $path, destino: EscolherAmbienteIpadView(path: $path))
 					.frame(height: 300)
 				
 			}
@@ -34,5 +35,6 @@ struct EscolherPlantaIPhoneView: View {
 }
 
 #Preview {
-	EscolherPlantaIPhoneView()
+	@Previewable @State var path: [RotaApp] = []
+	EscolherPlantaIPhoneView(path: $path)
 }

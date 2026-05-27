@@ -8,7 +8,8 @@ import SwiftUI
 
 struct PainelEscolhaView<Destino: View>: View {
     @StateObject var viewModel = PickerViewModel()
-    
+	@Binding var path: [RotaApp]
+	
        @State private var navigate = false
 	let destino: Destino
 	var body: some View {
@@ -39,13 +40,13 @@ struct PainelEscolhaView<Destino: View>: View {
 				NavigationLink {
                     switch viewModel.plantaSelecionada.nome {
                     case "Girassol":
-                        EscolherAmbienteView()
+						EscolherAmbienteView(path: $path)
                     case "Planta Carnivora":
-                        EscolherPlantaView()
+                        SemPlantaView(path: $path)
                     case "Costela-de-Adão":
-                        EscolherPlantaView()
+                        SemPlantaView(path: $path)
                     default:
-                        EscolherPlantaView()
+						EscolherPlantaView(path: $path)
                     }
 				} label: {
 					BotaoPrincipalView(textoBotao: "Confirmar")
@@ -61,7 +62,7 @@ struct PainelEscolhaView<Destino: View>: View {
 	}
 }
 
-#Preview {
-//	PainelEscolhaView(destino: <#Destino#>)
-		
-}
+//#Preview {
+//	@Previewable @State var path: [RotaApp] = []
+//	PainelEscolhaView(path: $path, destino: <#Destino#>)
+//}

@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct EscolherAmbienteView: View {
-    
+	@Binding var path: [RotaApp]
+	
     @Environment(\.horizontalSizeClass) var tamanhoHorizontal
     @Environment(\.verticalSizeClass) var tamanhoVertical
     
@@ -25,6 +26,6 @@ struct EscolherAmbienteView: View {
 }
 
 #Preview {
-    EscolherAmbienteView()
+	EscolherAmbienteView(path: $path)
 }
 

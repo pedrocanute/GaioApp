@@ -7,6 +7,7 @@
 import SwiftUI
 
 struct SimuladorExternoIPadView: View {
+	@Binding var path: [RotaApp]
 	
 	@State var plantaController = PlantaViewModel()
 	
@@ -74,7 +75,7 @@ struct SimuladorExternoIPadView: View {
 	}
 }
 
-
 #Preview {
-	SimuladorExternoIPadView()
+	@Previewable @State var path: [RotaApp] = []
+	SimuladorExternoIPadView(path: $path)
 }

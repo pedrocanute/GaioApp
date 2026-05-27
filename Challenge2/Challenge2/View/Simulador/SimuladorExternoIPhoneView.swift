@@ -7,6 +7,7 @@
 import SwiftUI
 
 struct SimuladorExternoIPhoneView: View {
+	@Binding var path: [RotaApp]
 	@State var plantaController = PlantaViewModel()
 	
 	var body: some View {
@@ -44,5 +45,6 @@ struct SimuladorExternoIPhoneView: View {
 
 
 #Preview {
-	SimuladorExternoIPhoneView()
+	@Previewable @State var path: [RotaApp] = []
+	SimuladorExternoIPhoneView(path: $path)
 }

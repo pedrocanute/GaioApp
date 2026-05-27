@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SimuladorInternoIPhoneView: View {
 	@State var plantaController = PlantaViewModel()
+	@Binding var path: [RotaApp]
 	
 	var body: some View {
 		GeometryReader { geo in
@@ -46,5 +47,8 @@ struct SimuladorInternoIPhoneView: View {
 }
 
 #Preview {
-	SimuladorInternoIPhoneView()
+
+	@Previewable @State var path: [RotaApp] = []
+	SimuladorInternoIPhoneView(path: $path)
+
 }

@@ -7,7 +7,8 @@
 
 import SwiftUI
 
-struct CuriosidadesTextoExternoIpad: View {
+struct CuriosidadesInternoIpad: View {
+	@Binding var path: [RotaApp]
 	@StateObject private var textos = CuriosidadesInternoViewModel()
 	
 	@StateObject private var textosExterno = CuriosidadesViewModel()
@@ -430,5 +431,5 @@ struct CuriosidadesTextoExternoIpad: View {
 
 
 #Preview {
-	CuriosidadesTextoExternoIpad()
+	CuriosidadesInternoIpad()
 }

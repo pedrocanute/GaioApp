@@ -1,12 +1,14 @@
 //
-//  EscolherPlantaView.swift
+//  SemPlantaView.swift
 //  Challenge2
 //
-//  Created by Pedro Canute on 18/05/26.
+//  Created by Pedro Canute on 27/05/26.
 //
+
 import SwiftUI
 
-struct EscolherPlantaView: View {
+struct SemPlantaView: View {
+	@Binding var path: [RotaApp]
 	
 	@Environment(\.horizontalSizeClass) var tamanhoHorizontal
 	@Environment(\.verticalSizeClass) var tamanhoVertical
@@ -14,16 +16,11 @@ struct EscolherPlantaView: View {
 	var noIPad: Bool { tamanhoVertical == .regular && tamanhoHorizontal == .regular}
 	
 	var body: some View {
-			
-			if noIPad {
-				EscolherPlantaIPadView(path: $path)
-			} else {
-				EscolherPlantaIPhoneView()
-			}
+		if noIPad {
+			SemPlantaIpadView(path: $path)
+		} else {
+			SemPlantaIphoneView(path: $path)
+		}
 	}
 }
 
-#Preview {
-	
-	EscolherPlantaView()
-}

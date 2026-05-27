@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct EscolherAmbienteIphoneView: View {
-
+	@Binding var path: [RotaApp]
     @State private var ambienteSelecionado: String?
 
     var body: some View {

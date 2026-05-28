@@ -35,7 +35,7 @@ struct SimuladorInternoIPadView: View {
 					ZStack {
 						Color.corFundoBege
 							.ignoresSafeArea()
-						PainelSlidersView(plantaController: plantaController, tipoAmbiente: .interno)
+                        PainelSlidersView(path: $path,plantaController: plantaController, tipoAmbiente: .interno)
 							.frame(height: altura * 0.5)
 						
 					}
@@ -78,7 +78,7 @@ struct SimuladorInternoIPadView: View {
 					
 					AmbientePlantaView(largura: largura, altura: alturaAmbiente, imagemAmbiente: plantaController.imagemAmbienteInterna, imagemGirassol: plantaController.imagemGirassolInterna, interno: true, modoPaisagem: false, iPad: true, alertaAtual: plantaController.alertaAtual)
 					Spacer()
-					PainelSlidersView(plantaController: plantaController, tipoAmbiente: .interno)
+                    PainelSlidersView(path: $path, plantaController: plantaController, tipoAmbiente: .interno)
 						.frame(height: altura * 0.4)
 				}
 			}

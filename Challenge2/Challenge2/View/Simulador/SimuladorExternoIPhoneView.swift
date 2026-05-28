@@ -33,7 +33,7 @@ struct SimuladorExternoIPhoneView: View {
 				
 				AmbientePlantaView(largura: largura, altura: alturaAmbiente, imagemAmbiente: plantaController.imagemAmbienteExterna, imagemGirassol: plantaController.imagemGirassolExterna, interno: false, modoPaisagem: false, iPad: false, alertaAtual: plantaController.alertaAtual)
 				
-				PainelSlidersView(plantaController: plantaController, tipoAmbiente: .externo)
+                PainelSlidersView(path: $path,plantaController: plantaController, tipoAmbiente: .externo)
 					.frame(height: alturaPainel)
 					.padding(.bottom, 20)
 				Spacer()

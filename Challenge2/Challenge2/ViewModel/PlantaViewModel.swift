@@ -92,7 +92,7 @@ class PlantaViewModel {
 	}
 	
 	func calcularStatusPlanta(ambienteInterno: Bool) -> StatusPlanta {
-		if agua == 0 {
+		if agua == 0 || agua == 1000 {
 			return .morta
 		}
 		

@@ -28,7 +28,6 @@ struct BotaoEscolherAmbienteView: View {
                 Image(botao.img)
                     .resizable()
                     .scaledToFill()
-                   
                     .clipped()
                     
 

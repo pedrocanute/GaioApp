@@ -127,7 +127,7 @@
 					};
 				};
 			};
-			buildConfigurationList = E1A897782FAE5813001DD350 /* Build configuration list for PBXProject "Challenge2" */;
+			buildConfigurationList = E1A897782FAE5813001DD350 /* Build configuration list for PBXProject "GaioApp" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -305,6 +305,7 @@
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Challenge2/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Gaio;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -351,6 +352,7 @@
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Challenge2/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Gaio;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -386,7 +388,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		E1A897782FAE5813001DD350 /* Build configuration list for PBXProject "Challenge2" */ = {
+		E1A897782FAE5813001DD350 /* Build configuration list for PBXProject "GaioApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E1A897862FAE5814001DD350 /* Debug */,

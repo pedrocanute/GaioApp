@@ -52,17 +52,7 @@ struct BotaoEscolherAmbienteHorizontalView: View {
 				}
 			}
 
-			.scaleEffect(
-				selecionado ? 1.05 : 1
-			)
-
-			.animation(
-				.spring(
-					response: 0.35,
-					dampingFraction: 0.7
-				),
-				value: selecionado
-			)
+			
 
 			.onTapGesture {
 

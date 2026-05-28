@@ -51,12 +51,7 @@ struct BotaoEscolherAmbienteView: View {
                 }
             }
 
-            .scaleEffect(selecionado ? 1.05 : 1)
-
-            .animation(
-                .spring(response: 0.3, dampingFraction: 0.7),
-                value: selecionado
-            )
+        
 
             .onTapGesture {
 

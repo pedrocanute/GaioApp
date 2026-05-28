@@ -38,7 +38,7 @@ struct SimuladorInternoIPhoneView: View {
 					AmbientePlantaView(largura: largura, altura: alturaAmbiente, imagemAmbiente: plantaController.imagemAmbienteInterna, imagemGirassol: plantaController.imagemGirassolInterna, interno: true, modoPaisagem: false, iPad: false, alertaAtual: plantaController.alertaAtual)
 					
 				
-					PainelSlidersView(plantaController: plantaController, tipoAmbiente: .interno)
+                    PainelSlidersView(path:$path, plantaController: plantaController, tipoAmbiente: .interno)
 					.frame(height: alturaPainel)
 			}
 		}

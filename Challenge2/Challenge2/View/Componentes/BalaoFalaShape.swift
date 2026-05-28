@@ -9,7 +9,7 @@ struct BalaoFalaShape: Shape {
 	func path(in rect: CGRect) -> Path {
 		var path = Path()
 		
-		let cornerRadius: CGFloat = 24
+		let cornerRadius: CGFloat = 20
 		let tailWidth: CGFloat = 24
 		let tailHeight: CGFloat = 18
 		

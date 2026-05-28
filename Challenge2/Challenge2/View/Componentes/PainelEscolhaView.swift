@@ -29,7 +29,10 @@ struct PainelEscolhaView: View {
 
 					PlantaPickerView(plantaSelecionada: $plantaSelecionada)
 						.frame(width: 220)
+					
 				}
+				.padding(.bottom, 20)
+				
 
 				Button {
 					navegarComBaseNaPlanta()

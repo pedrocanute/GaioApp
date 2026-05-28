@@ -25,24 +25,24 @@ struct AlertaFungicidaView: View {
 			
 			VStack(alignment: .center, spacing: 0) {
 				Text("Excesso de\n Fungicida!")
-					.font(.custom("CreatoDisplay-Bold", size: 18))
+					.font(.custom("CreatoDisplay-Bold", size: 15))
 					.foregroundStyle(.black)
 					.padding(.bottom, 5)
 				
 				Text("Reduza a dosagem")
-					.font(.custom("CreatoDisplay-Medium", size:  14))
+					.font(.custom("CreatoDisplay-Medium", size:  12))
 					.foregroundStyle(.black)
 					.padding(.bottom)
 					
 			}
 		}
 		.padding(.top, 10)
-		.padding(.bottom, 20)
+		.padding(.bottom, 15)
 		.background {
 			BalaoFalaShape()
 				.fill(Color.corFundoBege.opacity(0.85))
 				.shadow(color: .black.opacity(0.25), radius: 8, x: 0, y: 4)
-				.frame(width: 235)
+				.frame(width: 200)
 		}
 		.onAppear {
 			pulando = true

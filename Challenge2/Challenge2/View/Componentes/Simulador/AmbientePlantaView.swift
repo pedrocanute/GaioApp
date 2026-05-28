@@ -93,7 +93,7 @@ struct AmbientePlantaView: View {
 		if iPad {
 			return centroGirassolX + largura * 0.10
 		} else {
-			return centroGirassolX + largura * 0.12
+			return centroGirassolX + largura * 0.16
 		}
 	}
 
@@ -105,7 +105,7 @@ struct AmbientePlantaView: View {
 		} else if iPad {
 			return centroGirassolY - alturaGirassol * 0.32
 		} else {
-			return centroGirassolY - alturaGirassol * 0.40
+			return centroGirassolY - alturaGirassol * 0.45
 		}
 	}
 }

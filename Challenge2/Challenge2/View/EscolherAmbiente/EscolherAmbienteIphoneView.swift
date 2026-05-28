@@ -110,7 +110,7 @@ struct EscolherAmbienteIphoneView: View {
 
                         path.append(
                             .curiosidades(
-                                interno: true
+                                interno: false
                             )
                         )
 
@@ -174,7 +174,7 @@ struct EscolherAmbienteIphoneView: View {
 
                         path.append(
                             .curiosidades(
-                                interno: false
+                                interno: true
                             )
                         )
 

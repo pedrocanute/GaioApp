@@ -37,7 +37,7 @@ struct CuriosidadesInterno: View {
             let imagemSize = noIPad ? 450.0 : 250.0
             
             VStack{
-                    Text("Curiosidades do\nGirassol no Jardim")
+                    Text("Curiosidades do\nGirassol Interno")
                         .font(.custom("lalezar-regular", size: tituloSize, relativeTo: .title3))
                         .multilineTextAlignment(.center)
                         .foregroundStyle(Color.corFonteVerdeEscuro)

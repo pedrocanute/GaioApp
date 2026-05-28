@@ -1,4 +1,4 @@
-# Challenge-2
+# GaioApp
 
 Aplicativo desenvolvido em SwiftUI para simular o cuidado com um girassol em diferentes condições de cultivo.
 

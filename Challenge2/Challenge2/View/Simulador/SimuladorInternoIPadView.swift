@@ -25,7 +25,7 @@ struct SimuladorInternoIPadView: View {
 			let modoPaisagem = largura > altura
 			let alturaHeader = altura * 0.12
 			let alturaAmbiente = altura * 0.50
-			let alturaPainel = altura - alturaHeader - alturaAmbiente
+	
 			
 			if modoPaisagem {
 				let larguraPainel = largura * 0.5

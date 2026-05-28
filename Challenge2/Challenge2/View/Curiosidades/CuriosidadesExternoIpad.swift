@@ -22,13 +22,9 @@ struct CuriosidadesExternoIpad: View {
     var body: some View {
         GeometryReader{ geo in
             
-            let noIPad = tamanhoHorizontal == .regular
-            
+
             let modoPaisagem = geo.size.width > geo.size.height
-            
-            let tituloSize = noIPad ? 50 : 35.0
-            
-            
+
             
             if modoPaisagem {
                 

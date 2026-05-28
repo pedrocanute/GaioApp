@@ -30,10 +30,10 @@ struct EscolherAmbienteIphoneView: View {
             geo.size.width * 1.0
 
             let infoLargura =
-            largura * 0.18
+            largura * 0.16
 
             let infoAltura =
-            infoLargura * 0.75
+            infoLargura * 0.8
 
             VStack {
 
@@ -125,8 +125,8 @@ struct EscolherAmbienteIphoneView: View {
                     }
 
                     .position(
-                        x: geo.size.width * 0.662,
-                        y: geo.size.width * 0.067
+                        x: geo.size.width * 0.67,
+                        y: geo.size.width * 0.064
                     )
                 }
 
@@ -188,10 +188,10 @@ struct EscolherAmbienteIphoneView: View {
                             )
                     }
 
-                    .position(
-                        x: geo.size.width * 0.662,
-                        y: geo.size.width * 0.067
-                    )
+					.position(
+						x: geo.size.width * 0.67,
+						y: geo.size.width * 0.064
+					)
                 }
 
                 .scaleEffect(

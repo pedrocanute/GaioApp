@@ -108,6 +108,7 @@ struct PainelSlidersView: View {
                             textoBotao:
                                 "Escolha Outra Planta"
                         )
+						.frame(width: 249)
                     }
                 }
             }

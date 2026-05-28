@@ -23,15 +23,12 @@ struct BotaoEscolherAmbienteView: View {
             let textoSize = largura * 0.065
             let paddingTexto = altura * 0.02
 
-            let selecionado =
-            ambienteSelecionado == botao.texto
-
             ZStack(alignment: .topTrailing) {
 
                 Image(botao.img)
                     .resizable()
                     .scaledToFill()
-                    .frame(width: .infinity, height: .infinity)
+                   
                     .clipped()
                     
 
@@ -50,6 +47,7 @@ struct BotaoEscolherAmbienteView: View {
                         .padding(.bottom, paddingTexto)
                 }
             }
+			.frame(maxWidth: .infinity, maxHeight: .infinity)
 
         
 
@@ -73,3 +71,4 @@ struct BotaoEscolherAmbienteView: View {
     BotaoEscolherAmbienteView(botao: BotaoEscolherAmbienteViewModel.botaoAmbiente[0] , ambienteSelecionado: $ambienteSelecionado)
         .frame(width: 320)
 }
+

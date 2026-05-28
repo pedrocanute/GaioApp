@@ -15,9 +15,6 @@ struct BotaoEscolherAmbienteHorizontalView: View {
 
 			let textoSize = largura * 0.06
 
-			let selecionado =
-			ambienteSelecionado == botao.texto
-
 			ZStack(alignment: .topTrailing) {
 
 				Image(botao.img)

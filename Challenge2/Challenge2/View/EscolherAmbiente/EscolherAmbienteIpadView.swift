@@ -26,7 +26,7 @@ struct EscolherAmbienteIpadView: View {
             geo.size.width * 0.04
 
             let texto =
-            geo.size.width * 0.025
+			20.0
 
             let larguraTexto =
             geo.size.width * 0.5
@@ -86,11 +86,7 @@ struct EscolherAmbienteIpadView: View {
                         .foregroundColor(
                             .corFonteVerdeEscuro
                         )
-
                         .multilineTextAlignment(.center)
-
-                        .lineLimit(nil)
-
                         .frame(width: larguraTexto)
                     }
 

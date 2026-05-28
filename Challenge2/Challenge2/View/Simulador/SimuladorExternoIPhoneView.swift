@@ -27,7 +27,7 @@ struct SimuladorExternoIPhoneView: View {
 			}
 			
 			VStack (spacing: 0){
-//				Spacer()
+
 				HeaderSimuladorView(largura: largura, altura: alturaHeader, modoPaisagem: false)
 					.zIndex(1)
 				
@@ -39,7 +39,6 @@ struct SimuladorExternoIPhoneView: View {
 				Spacer()
 			}
 		}
-//		.toolbar(.hidden, for: .navigationBar)
 	}
 }
 

@@ -7,15 +7,16 @@
 import SwiftUI
 
 struct SplashScreenView: View {
-	@State private var irParaProximaTela = false
+	@State private var mostrarSplash = true
 	@State private var opacidadeLogo = 0.0
+	@State private var escalaLogo: CGFloat = 0.82
+	@State private var opacidadeSplash = 1.0
 
 	var body: some View {
 		ZStack {
-			if irParaProximaTela {
-				Navegacao()
-					.transition(.opacity)
-			} else {
+			Navegacao()
+
+			if mostrarSplash {
 				ZStack {
 					Color.corFundoBege
 						.ignoresSafeArea()
@@ -26,21 +27,26 @@ struct SplashScreenView: View {
 						.frame(maxWidth: 260, maxHeight: 260)
 						.padding(.horizontal, 24)
 						.opacity(opacidadeLogo)
+						.scaleEffect(escalaLogo)
 				}
-				.transition(.opacity)
+				.opacity(opacidadeSplash)
 			}
 		}
 		.onAppear {
-			withAnimation(.easeIn(duration: 0.8)) {
+			withAnimation(.spring(response: 1.2, dampingFraction: 0.82)) {
 				opacidadeLogo = 1
+				escalaLogo = 1.0
 			}
 
-			DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-				withAnimation(.easeInOut(duration: 0.9)) {
-					irParaProximaTela = true
+			DispatchQueue.main.asyncAfter(deadline: .now() + 1.9) {
+				withAnimation(.easeInOut(duration: 0.6)) {
+					opacidadeSplash = 0
 				}
+			}
+
+			DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+				mostrarSplash = false
 			}
 		}
 	}
 }
-

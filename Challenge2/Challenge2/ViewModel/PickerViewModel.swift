@@ -1,37 +1,21 @@
-//
-//  PickerViewModel.swift
-//  Challenge2
-//
-//  Created by Pedro Monge Silveira on 18/05/26.
-//
 import Foundation
-import Combine
 
-enum tipoPlanta{
-    case girasol
-    case costeladeadao
-    case plantaCarnivora
+enum TipoPlanta {
+	case girassol
+	case costelaDeAdao
+	case plantaCarnivora
 }
 
-struct PlantaPickerModel: Identifiable,Hashable{
-    let id = UUID()
-    let nome: String
-    let tipo: tipoPlanta
+struct PlantaPickerModel: Identifiable, Hashable {
+	let id = UUID()
+	let nome: String
+	let tipo: TipoPlanta
 }
 
-
-class PickerViewModel: ObservableObject {
-    @Published var plantaSelecionada: PlantaPickerModel
-    
-    var plantas: [PlantaPickerModel]{
-        PlantasData.plantas
-    }
-    
-    init() {
-        self.plantaSelecionada = PlantasData.plantas.first(where: { $0.nome == "Girassol" }) ?? PlantasData.plantas[0]
-    }
-    func selecionarPlanta(_ planta: PlantaPickerModel) {
-        plantaSelecionada = planta
-    }
+struct PlantasData {
+	static let plantas: [PlantaPickerModel] = [
+		PlantaPickerModel(nome: "Girassol", tipo: .girassol),
+		PlantaPickerModel(nome: "Planta Carnívora", tipo: .plantaCarnivora),
+		PlantaPickerModel(nome: "Costela-de-Adão", tipo: .costelaDeAdao)
+	]
 }
-

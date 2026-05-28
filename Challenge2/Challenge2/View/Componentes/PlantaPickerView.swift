@@ -7,38 +7,25 @@
 
 import SwiftUI
 
-
-struct PlantasData{
-    static let plantas:[PlantaPickerModel] = [
-        PlantaPickerModel(nome: "Girassol", tipo: .girasol),
-        PlantaPickerModel(nome: "Planta Carnivora", tipo: .plantaCarnivora),
-        PlantaPickerModel(nome: "Costela-de-Adão", tipo: .costeladeadao)
-    ]
-    
-}
-
-
 struct PlantaPickerView: View {
-    @StateObject var viewModel = PickerViewModel()
+	@Binding var plantaSelecionada: PlantaPickerModel
 
-    var body: some View {
-		
-        VStack {
-			Picker("Selecione", selection: $viewModel.plantaSelecionada) {
-				ForEach(PlantasData.plantas) { planta in
-					Text(planta.nome)
-						.foregroundStyle(Color.white)
-						.font(.custom("CreatoDisplay-regular", size: 20))
-						.tag(planta)
-				}
+	var body: some View {
+		Picker("Selecione", selection: $plantaSelecionada) {
+			ForEach(PlantasData.plantas) { planta in
+				Text(planta.nome)
+					.foregroundStyle(.white)
+					.font(.custom("CreatoDisplay-Regular", size: 20))
+					.tag(planta)
 			}
-			.pickerStyle(.wheel)  //.menu ou . segmented
-			.frame(height: 100)
-			.clipped()
 		}
-    }
+		.pickerStyle(.wheel)
+		.frame(height: 100)
+		.clipped()
+	}
 }
 
 #Preview {
-    PlantaPickerView()
+	@Previewable @State var planta = PlantasData.plantas[0]
+	PlantaPickerView(plantaSelecionada: $planta)
 }

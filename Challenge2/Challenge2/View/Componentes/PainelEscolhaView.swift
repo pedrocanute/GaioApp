@@ -1,22 +1,22 @@
 import SwiftUI
 
 struct PainelEscolhaView: View {
-	
-	@StateObject private var viewModel = PickerViewModel()
 	@Binding var path: [RotaApp]
-	
+
+	@State private var plantaSelecionada = PlantasData.plantas[0]
+
 	var body: some View {
 		ZStack {
 			Rectangle()
 				.frame(maxWidth: .infinity, maxHeight: .infinity)
 				.foregroundStyle(.corFundoVerdeEscuro)
 				.ignoresSafeArea()
-			
+
 			VStack(spacing: 15) {
 				Text("Escolha uma planta")
 					.font(.custom("Lalezar-Regular", size: 30))
 					.foregroundStyle(.white)
-				
+
 				ZStack {
 					Rectangle()
 						.foregroundColor(.clear)
@@ -26,11 +26,11 @@ struct PainelEscolhaView: View {
 								.inset(by: 0.5)
 								.stroke(.white, lineWidth: 1)
 						)
-					
-					PlantaPickerView()
+
+					PlantaPickerView(plantaSelecionada: $plantaSelecionada)
 						.frame(width: 220)
 				}
-				
+
 				Button {
 					navegarComBaseNaPlanta()
 				} label: {
@@ -43,25 +43,19 @@ struct PainelEscolhaView: View {
 			.frame(height: 200)
 		}
 	}
-	
+
 	func navegarComBaseNaPlanta() {
-		switch viewModel.plantaSelecionada.tipo {
-        case .girasol:
+		switch plantaSelecionada.tipo {
+		case .girassol:
 			path.append(.escolherAmbiente)
-			
-        case .plantaCarnivora:
+
+		case .plantaCarnivora, .costelaDeAdao:
 			path.append(.semPlanta)
-			
-        case .costeladeadao:
-			path.append(.semPlanta)
-			
-		default:
-            path.append(.semPlanta)		}
+		}
 	}
 }
 
 #Preview {
 	@Previewable @State var path: [RotaApp] = []
-	
 	PainelEscolhaView(path: $path)
 }

@@ -7,10 +7,16 @@
 import Foundation
 import Combine
 
+enum tipoPlanta{
+    case girasol
+    case costeladeadao
+    case plantaCarnivora
+}
 
 struct PlantaPickerModel: Identifiable,Hashable{
     let id = UUID()
     let nome: String
+    let tipo: tipoPlanta
 }
 
 

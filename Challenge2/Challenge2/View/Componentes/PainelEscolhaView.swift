@@ -45,19 +45,18 @@ struct PainelEscolhaView: View {
 	}
 	
 	func navegarComBaseNaPlanta() {
-		switch viewModel.plantaSelecionada.nome {
-		case "Girassol":
+		switch viewModel.plantaSelecionada.tipo {
+        case .girasol:
 			path.append(.escolherAmbiente)
 			
-		case "Planta Carnivora":
+        case .plantaCarnivora:
 			path.append(.semPlanta)
 			
-		case "Costela-de-Adão":
+        case .costeladeadao:
 			path.append(.semPlanta)
 			
 		default:
-			path.append(.semPlanta)
-		}
+            path.append(.semPlanta)		}
 	}
 }
 

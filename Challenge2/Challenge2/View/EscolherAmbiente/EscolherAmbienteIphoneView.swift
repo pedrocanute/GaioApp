@@ -110,7 +110,7 @@ struct EscolherAmbienteIphoneView: View {
 
                         path.append(
                             .curiosidades(
-                                interno: false
+                                interno: true
                             )
                         )
 
@@ -189,8 +189,8 @@ struct EscolherAmbienteIphoneView: View {
                     }
 
                     .position(
-						x: geo.size.width * 0.662,
-						y: geo.size.width * 0.067
+                        x: geo.size.width * 0.662,
+                        y: geo.size.width * 0.067
                     )
                 }
 
@@ -219,11 +219,37 @@ struct EscolherAmbienteIphoneView: View {
 
                 Spacer()
 
-                BotaoPrincipalView()
-                    .frame(width: 209)
-                    .disabled(
-                        ambienteSelecionado == nil
-                    )
+                Button {
+
+                    if ambienteSelecionado ==
+                        BotaoEscolherAmbienteViewModel
+                        .botaoAmbiente[0]
+                        .texto {
+
+                        path.append(
+                            .simulador(interno: false)
+                        )
+
+                    } else if ambienteSelecionado ==
+                                BotaoEscolherAmbienteViewModel
+                                .botaoAmbiente[1]
+                                .texto {
+
+                        path.append(
+                            .simulador(interno: true)
+                        )
+                    }
+
+                } label: {
+
+                    BotaoPrincipalView()
+                }
+
+                .frame(width: 209)
+
+                .disabled(
+                    ambienteSelecionado == nil
+                )
             }
 
             .frame(

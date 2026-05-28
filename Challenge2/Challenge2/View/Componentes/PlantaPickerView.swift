@@ -10,9 +10,9 @@ import SwiftUI
 
 struct PlantasData{
     static let plantas:[PlantaPickerModel] = [
-		PlantaPickerModel(nome: "Girassol"),
-        PlantaPickerModel(nome: "Planta Carnivora"),
-        PlantaPickerModel(nome: "Costela-de-Adão")
+        PlantaPickerModel(nome: "Girassol", tipo: .girasol),
+        PlantaPickerModel(nome: "Planta Carnivora", tipo: .plantaCarnivora),
+        PlantaPickerModel(nome: "Costela-de-Adão", tipo: .costeladeadao)
     ]
     
 }

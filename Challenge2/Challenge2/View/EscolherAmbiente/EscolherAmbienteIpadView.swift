@@ -18,6 +18,7 @@ struct EscolherAmbienteIpadView: View {
         GeometryReader { geo in
 
             let largura = geo.size.width
+
             let modoPaisagem =
             geo.size.width > geo.size.height
 
@@ -74,17 +75,22 @@ struct EscolherAmbienteIpadView: View {
                         Text(
                             "Em qual ambiente gostaria de ver o seu Girassol?"
                         )
+
                         .font(
                             .custom(
                                 "CreatoDisplay-regular",
                                 size: texto
                             )
                         )
+
                         .foregroundColor(
                             .corFonteVerdeEscuro
                         )
+
                         .multilineTextAlignment(.center)
+
                         .lineLimit(nil)
+
                         .frame(width: larguraTexto)
                     }
 
@@ -350,14 +356,41 @@ struct EscolherAmbienteIpadView: View {
 
                     Spacer()
 
-                    BotaoPrincipalView()
-                        .frame(
-                            width: geo.size.width * 0.4
-                        )
-                        .disabled(
-                            ambienteSelecionado == nil
-                        )
-                        .padding(.bottom, 40)
+                    Button {
+
+                        if ambienteSelecionado ==
+                            BotaoEscolherAmbienteViewModel
+                            .botaoAmbiente[0]
+                            .texto {
+
+                            path.append(
+                                .simulador(interno: false)
+                            )
+
+                        } else if ambienteSelecionado ==
+                                    BotaoEscolherAmbienteViewModel
+                                    .botaoAmbiente[1]
+                                    .texto {
+
+                            path.append(
+                                .simulador(interno: true)
+                            )
+                        }
+
+                    } label: {
+
+                        BotaoPrincipalView()
+                    }
+
+                    .frame(
+                        width: geo.size.width * 0.4
+                    )
+
+                    .disabled(
+                        ambienteSelecionado == nil
+                    )
+
+                    .padding(.bottom, 40)
                 }
 
                 .frame(

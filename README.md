@@ -40,3 +40,9 @@ Essa estrutura separa a interface, os dados, a lógica de estado e a navegação
 
 ```bash
 git clone https://github.com/pedrocanute/Challenge-2.git
+
+## 👥 Colaboradores
+
+- [Guilherme Alves de Souza](https://github.com/snowzinn1)
+- [Pedro Monge](https://github.com/monge95)  
+
